@@ -1,0 +1,377 @@
+@font-face {
+    font-family: museosans;
+    src: url('/webassets/fonts/MuseoSans_100.otf');
+    font-weight: 100;
+    font-style: normal;
+}
+@font-face {
+    font-family: museosans;
+    src: url('/webassets/fonts/MuseoSans_300.otf');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: museosans;
+    src: url('/webassets/fonts/MuseoSans_500.otf');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: museosans;
+    src: url('/webassets/fonts/MuseoSans_700.otf');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: museosans;
+    src: url('/webassets/fonts/MuseoSans_900.otf');
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: museosans;
+    src: url('/webassets/fonts/MuseoSans_100_Italic.otf');
+    font-weight: 100;
+    font-style: italic;
+}
+@font-face {
+    font-family: museosans;
+    src: url('/webassets/fonts/MuseoSans_300_Italic.otf');
+    font-weight: 300;
+    font-style: italic;
+}
+@font-face {
+    font-family: museosans;
+    src: url('/webassets/fonts/MuseoSans_500_Italic.otf');
+    font-weight: 500;
+    font-style: italic;
+}
+@font-face {
+    font-family: museosans;
+    src: url('/webassets/fonts/MuseoSans_700_Italic.otf');
+    font-weight: 700;
+    font-style: italic;
+}
+@font-face {
+    font-family: museosans;
+    src: url('/webassets/fonts/MuseoSans_900_Italic.otf');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@media(max-width:767px){
+
+}
+
+.grid-view .filters input, .grid-view .filters select {
+    width: 94% !important;
+    border: 1px solid #ccc;
+}
+
+.grid-view table.items th, .grid-view table.items td {
+  border: 1px rgb(190, 178, 178) solid !important;
+}
+
+.grid-view table.items tr.selected {
+  background: #AEE0FC !important;
+}
+
+.grey{color:#999}
+
+.row{
+    margin-left:0px;
+}
+
+#pageContainer {
+    width: 100%;
+    min-height: 600px;
+    background-color: #ffffff;
+    margin: 0 auto;
+    /*background: linear-gradient(#ffffff, #79c7db);*/
+    /*background:-webkit-linear-gradient(top,#ffffff 0%,#79c7db 99%);  for Safari 5.1+ */
+    /*    min-height: 100%;
+        height: 100%;*/
+}
+
+.table {
+/*    background-color: #ffffff;*/
+}
+
+.newItem {
+    background-color: #dfdfdf;
+}
+
+.table > tbody > tr {
+    background-color: #f7f9fa;
+    margin: 5px;
+    border-top: 3px solid #ffffff;
+}
+
+tr.odd, tr.odd a{
+/*    font-size:12px;*/
+    font-weight: 700;
+    background-color:#f7f9fa;
+}
+.table > tbody > tr.odd{
+    overflow:hidden;
+    border-top: none;
+}
+
+.table > tbody > tr.even{
+    overflow:hidden;
+    background-color: #eeeeee;
+    border-top: none;
+}
+
+tr.odd:hover, div.odd:hover a
+{
+    background-color:#eeeeee;
+    cursor: pointer;
+    color:#474747;
+}
+
+tr.even, tr.even a{
+/*    font-size:12px;*/
+    font-weight: 700;
+    background-color:#eeeeee;
+}
+
+tr.even:hover, tr.even:hover a
+{
+    background-color:#f7f9fa;
+    cursor: pointer;
+    color:#474747;
+}
+
+td.alignLeft {
+    border-right: 1px solid #cfcfcf;
+    border-top: none;
+}
+
+.btn-default.selected {
+    background-color: #efefef !important;
+    border-color: #0d638f;
+}
+
+.btn-default.selected:hover {
+    border-color: #0d638f;
+    background-color: #efefef !important;
+    color: #ffffff !important;
+}
+.alignLeft{
+    text-align: left;
+    clear: both;
+}
+
+.btn-sm {
+        padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+
+.btn-default {
+    background-color: #0d638f !important;
+    border-color: #0d638f;
+}
+
+.btn-default.active {
+    border-color: #0d638f;
+}
+
+.btn-default:hover {
+    background-color: #0d638f !important;
+    border-color: #0d638f;
+}
+
+.btn-default.active:hover {
+    border-color: #0d638f;
+}
+
+.btn-default  {
+    color: #ffffff !important;
+    font-weight: 400;
+}
+
+.btn-default:hover  {
+    color: #474747 !important;
+}
+
+input[type="checkbox"],input[type="radio"]{
+    margin: 0px 8px;
+}
+
+a, a:hover, a:focus{
+    color: #707070;
+}
+
+.table {
+/*    background-color: #ffffff;*/
+}
+
+.alignRight {
+    text-align: right;
+}
+
+.floatLeft{
+    float:left;
+}
+
+.floatRight{
+    float:right;
+}
+
+#affidavitOverlay {
+
+  /* must be initially hidden */
+  display:none;
+
+  /* place overlay on top of other elements */
+  z-index:10000;
+
+  /* styling */
+  background-color: rgba(255, 255, 255, 0.6);
+
+  width:400px;
+  min-height:200px;
+  border: 0 !important;
+
+  /* CSS3 styling for latest browsers */
+  -moz-box-shadow:0 0 90px 5px #000;
+  -webkit-box-shadow: 0 0 90px #000;
+  color: #fff;
+}
+
+#affidavitReportByMonthOverlay {
+
+  /* must be initially hidden */
+  display:none;
+
+  /* place overlay on top of other elements */
+  z-index:10000;
+
+  /* styling */
+  background-color: rgba(255, 255, 255, 0.6);
+
+  width:400px;
+  min-height:200px;
+  border: 0 !important;
+
+  /* CSS3 styling for latest browsers */
+  -moz-box-shadow:0 0 90px 5px #000;
+  -webkit-box-shadow: 0 0 90px #000;
+  color: #fff;
+}
+
+#affidavitReportByStationOverlay {
+
+  /* must be initially hidden */
+  display:none;
+
+  /* place overlay on top of other elements */
+  z-index:10000;
+
+  /* styling */
+  background-color: rgba(255, 255, 255, 0.6);
+
+  width:400px;
+  min-height:200px;
+  border: 0 !important;
+
+  /* CSS3 styling for latest browsers */
+  -moz-box-shadow:0 0 90px 5px #000;
+  -webkit-box-shadow: 0 0 90px #000;
+  color: #fff;
+}
+
+#affidavitReportByMonthAndStationOverlay {
+
+  /* must be initially hidden */
+  display:none;
+
+  /* place overlay on top of other elements */
+  z-index:10000;
+
+  /* styling */
+  background-color: rgba(255, 255, 255, 0.6);
+
+  width:400px;
+  min-height:200px;
+  border: 0 !important;
+
+  /* CSS3 styling for latest browsers */
+  -moz-box-shadow:0 0 90px 5px #000;
+  -webkit-box-shadow: 0 0 90px #000;
+  color: #fff;
+}
+
+#affidavitOverlay .close {
+  background-image:url('/core/webassets/images/close.png');
+  position:absolute;
+  right:-15px;
+  top:-15px;
+  cursor:pointer;
+  height:35px;
+  width:35px;
+}
+
+#affidavitOverlayContent {
+  padding: 0 10px 10px 10px;
+}
+
+#affidavitReportByMonthOverlay .close {
+  background-image:url('/core/webassets/images/close.png');
+  position:absolute;
+  right:-15px;
+  top:-15px;
+  cursor:pointer;
+  height:35px;
+  width:35px;
+}
+
+#affidavitReportByMonthOverlayContent {
+  padding: 0 10px 10px 10px;
+}
+
+#affidavitReportByStationOverlay .close {
+  background-image:url('/core/webassets/images/close.png');
+  position:absolute;
+  right:-15px;
+  top:-15px;
+  cursor:pointer;
+  height:35px;
+  width:35px;
+}
+
+#affidavitReportByStationOverlayContent {
+  padding: 0 10px 10px 10px;
+}
+
+#affidavitReportByMonthAndStationOverlay .close {
+  background-image:url('/core/webassets/images/close.png');
+  position:absolute;
+  right:-15px;
+  top:-15px;
+  cursor:pointer;
+  height:35px;
+  width:35px;
+}
+
+#affidavitReportByMonthAndStationOverlayContent {
+  padding: 0 10px 10px 10px;
+}
+
+#fab-affidavit-button {
+  padding-left     : 10px;
+  padding-right    : 10px;
+  padding-top      : 4px;
+  padding-bottom   : 4px;
+  color            : white;
+  border           : 0;
+  width            : 240px;
+  margin-top       : 29px;
+  margin-left      : 20px;
+  background-color : #D0CFCF;
+  cursor           : pointer;
+  height           : 34px;
+}
