@@ -60,9 +60,9 @@
     background: -o-linear-gradient(#f6aa27, #000000); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(#f6aa27, #000000); /* For Firefox 3.6 to 15 */
     background: linear-gradient(#f6aa27, #000000); /* Standard syntax */
-     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#f6aa27, endColorstr=#000000);
-        /* For Internet Explorer 8 */
-        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#f6aa27, endColorstr=#000000)";
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#f6aa27, endColorstr=#000000);
+    /* For Internet Explorer 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#f6aa27, endColorstr=#000000)";
 }
 
 .sliderYAHALA {
@@ -71,8 +71,8 @@
     background: -moz-linear-gradient(#00c6ff, #fa00ff); /* For Firefox 3.6 to 15 */
     background: linear-gradient(#00c6ff, #fa00ff); /* Standard syntax */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00c6ff, endColorstr=#fa00ff);
-        /* For Internet Explorer 8 */
-        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00c6ff, endColorstr=#fa00ff)";
+    /* For Internet Explorer 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00c6ff, endColorstr=#fa00ff)";
 }
 
 .sliderFEESAMEEM {
@@ -81,8 +81,8 @@
     background: -moz-linear-gradient(#ffffff, #fa7271); /* For Firefox 3.6 to 15 */
     background: linear-gradient(#ffffff, #fa7271); /* Standard syntax */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00c6ff, endColorstr=#fa00ff);
-        /* For Internet Explorer 8 */
-        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00c6ff, endColorstr=#fa00ff)";
+    /* For Internet Explorer 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00c6ff, endColorstr=#fa00ff)";
 }
 
 .sliderALRISALA {
@@ -148,30 +148,30 @@
 }
 .vote_div
 {
-	background-color: rgba(0, 0, 0, 0.0);
-	margin-right:20px;
-	padding-top:20px;
-	font-size:17px;
+    background-color: rgba(0, 0, 0, 0.0);
+    margin-right:20px;
+    padding-top:20px;
+    font-size:17px;
 }
 
 .vote_div .progress
 {
-	background-color:#d7d7d7;
-	height:36px;
-	overflow:none;
-	margin-left:-1px;
-	width:100% !important;
-	border-radius:0px;
+    background-color:#d7d7d7;
+    height:36px;
+    overflow:none;
+    margin-left:-1px;
+    width:100% !important;
+    border-radius:0px;
 }
 
 .vote_div .progress2
 {
-	background-color:#d7d7d7;
-	height:50px;
-	overflow:none;
-	margin-left:-1px;
-	width:100% !important;
-	border-radius:0px;
+    background-color:#d7d7d7;
+    height:50px;
+    overflow:none;
+    margin-left:-1px;
+    width:100% !important;
+    border-radius:0px;
 }
 
 /*@-moz-document url-prefix() {
@@ -180,11 +180,11 @@
 }*/
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-   .vote_div .progress {
+    .vote_div .progress {
         position: relative;
         left: 150px;
         top: -10px;
-   }
+    }
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
@@ -192,23 +192,23 @@
         position: relative;
         left: 150px;
         top: -10px;
-   }
+    }
 }
 
 .vote_div .vote_label
 {
-	 background-color: #ededed;
-	 margin-bottom:0px;
-	 border:none;
-	 height:20px;
-	 width:100%;
-	 color:#000000;
-	 font-size:17px !important;
+    background-color: #ededed;
+    margin-bottom:0px;
+    border:none;
+    height:20px;
+    width:100%;
+    color:#000000;
+    font-size:17px !important;
 }
 
 .vote_div .progress-bar-info
 {
-	background-color:#00d6ff;
+    background-color:#00d6ff;
 }
 .linkButton {
     border:0px;
@@ -283,7 +283,7 @@
     .container{width:980px;min-height:496px;}
     .home_left{width: 498px;}
     .home_right{width: 408px; margin-left:40px;margin-top:80px;}
-/*    .vote_div{width: 292px;}*/
+    /*    .vote_div{width: 292px;}*/
     .contact .footer{position:absolute;top: 575px;}
     .about, .about .scroll-pane{width:523px;    margin: 0 auto;}
     .press_contact{width: 563px;}
@@ -311,27 +311,28 @@
     .upload_div{width:581px;padding-left:15px;}
     .upload_div .upload_row{width:401px;margin-left:0px;margin-right:0px;}
 
-@media all and (min-width: 577px) {
-    .questions {width: 576px;}
-    .questions .header{height:78px;}
-    .questions .header .first{width:165px;margin-left:15px;}
-    .questions .header .first .pick, .questions .header .first .medium, .questions .header .first .small {width:120px;}
-    .questions .subtitle{height:60px;line-height:60px;}
-    .questions .question_div{width:576px ;}
-}
+    @media all and (min-width: 577px) {
+        .questions {width: 576px;}
+        .questions .header{height:78px;}
+        .questions .header .first{width:165px;margin-left:15px;}
+        .questions .header .first .pick, .questions .header .first .medium, .questions .header .first .small {width:120px;}
+        .questions .subtitle{height:60px;line-height:60px;}
+        .questions .question_div{width:576px ;}
+    }
 
-@media all and (min-width: 600px) {
-    .videoBlocks{width:590px; height:362px;}
-    .register_modal .term_popup{ width:540px; }
-    .register_modal  .header{ width:542px;}
-    .register_modal  .modal-content{width:542px; background-color:#636363;margin-top:43px;}
-}
+    @media all and (min-width: 600px) {
+        .videoBlocks{width:590px; height:362px;}
+        .register_modal .term_popup{ width:540px; }
+        .register_modal  .header{ width:542px;}
+        .register_modal  .modal-content{width:542px; background-color:#636363;margin-top:43px;}
+    }
 
-@media all and (min-width: 412px) and (max-width:600px) {
-    .videoBlocks{width:400px; height:362px;}
-}
+    @media all and (min-width: 412px) and (max-width:600px) {
+        .videoBlocks{width:400px; height:362px;}
+    }
 
-@media all and (max-width: 412px) {
-    .videoBlocks{width:210px; height:362px;}
-    .view_by{display:none;}
+    @media all and (max-width: 412px) {
+        .videoBlocks{width:210px; height:362px;}
+        .view_by{display:none;}
+    }
 }
