@@ -28,7 +28,7 @@ class clientUserController extends UserController {
                 'users' => array('@'),
             ),
             array('allow',
-                'actions' => array('login', 'loginpay', 'activity', 'register', 'registerpay', 'getpassword', 'termsofuse', 'privacypolicy', 'ajaxPayPalDirect', 'registernew', 'loginnew','baldiniscontact', 'rules'),
+                'actions' => array('login', 'loginpay', 'activity', 'register', 'registerpay', 'getpassword', 'termsofuse', 'privacypolicy', 'ajaxPayPalDirect', 'registernew', 'loginnew', 'baldiniscontact', 'rules', 'registerimported'),
                 'users' => array('*'),
             ),
             array('deny', // deny all users
@@ -41,14 +41,95 @@ class clientUserController extends UserController {
         $this->activeSubNavLink = 'credits';
 
         if ($id == NULL) {
-                $game = eGameChoice::model()->multiple()->isActive()->with('gameChoiceAnswers')->find();
-            } else {
-                $game = eGameChoice::model()->multiple()->with('gameChoiceAnswers')->findByPk((int) $id);
-            }
+            $game = eGameChoice::model()->multiple()->isActive()->with('gameChoiceAnswers')->find();
+        } else {
+            $game = eGameChoice::model()->multiple()->with('gameChoiceAnswers')->findByPk((int) $id);
+        }
 
         $credits = eCreditTransaction::model()->with('prize')->recent()->findAllByAttributes(array('user_id' => Yii::app()->user->id)); //var_dump($credits);
         $this->render('credits', array('credits' => $credits)
         );
+    }
+
+    public function actionRegisterImported($id = NULL) {
+        $this->activeNavLink = 'registerimported';
+
+        if (!Yii::app()->user->isGuest) {
+            $this->redirect(Yii::app()->createURL('site/index'));
+        }
+        $user = new clientUser;
+        
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'user-registerimported-form') {
+            echo CActiveForm::validate($user);
+            Yii::app()->end();
+        }
+        if (isset($_POST['clientUser'])) {
+            $user->attributes = $_POST['clientUser'];
+            $checkUserExists = clientUser::model()->findByAttributes(array('username' => $user->username));//var_dump($checkUserExists->username, md5($checkUserExists->password));exit;
+            if (!is_null($checkUserExists)) {
+                $checkUserExists->setScenario('loginimported');
+                //$newPassword = $checkUserExists->password;
+                //$user->password = $newPassword;
+                ClientUserUtility::login($checkUserExists);
+                if (!empty(Yii::app()->user->returnUrl) && Yii::app()->user->returnUrl !== "/") {
+                    $this->redirect(Yii::app()->user->returnUrl);
+                }
+                $this->redirect($this->createUrl('/payment?ci=1'));
+                AuditUtility::save($this, $_REQUEST);
+            } else {
+                $userEmail = new clientUserEmail;
+                $userLocation = clientUserLocation::model()->findByAttributes(array('user_id' => Yii::app()->user->getId()));
+                $userLocation = (is_null($userLocation)) ? new clientUserLocation : $userLocation;
+                
+                $user->setScenario('registerimported');
+                $userEmail->setScenario('registerimported');
+                $userLocation->setScenario('registerimported');
+
+                $user->birthday = '0000-00-00';
+                if ($this->isMobile()) {
+                    $user->source = 'mobile';
+                }
+                $user->source = 'web';
+                $user->gender = '';
+                $user->password = 'playsino1234';
+                $user->first_name = 'Imported';
+                $user->last_name = 'User';
+                //var_dump($user, $userEmail, $userLocation);$user->validate();var_dump($user->getErrors());$userEmail->validate();var_dump($userEmail->getErrors());$userLocation->validate();var_dump($userLocation->getErrors());exit;
+                
+                if (ClientUserUtility::register($user)) {
+                    $userEmail->user_id = $user->id;
+                    $userEmail->email = $user->username;
+                    $userEmail->type = 'primary';
+                    $userEmail->active = 1;
+                    $userEmail->save();
+
+                    $userLocation->user_id = $user->id;
+                    $userLocation->city = ' ';
+                    $userLocation->type = 'primary';
+                    $userLocation->save();
+
+                    $user->setScenario('loginimported');
+                    ClientUserUtility::login($user);
+
+                    $settings = eAppSetting::model()->active()->findAll();
+                    foreach ($settings as $k => $v) {
+                        $pageSettings[$v->attribute] = $v->value;
+                    }
+
+                    $result = MailUtility::send('registersilent', $userEmail->email, array('link' => Yii::app()->createAbsoluteUrl("/", array()), 'storelink' => Yii::app()->createAbsoluteUrl("/payment?ci=1", array())), false);
+                    if ($result) {
+                        AuditUtility::save($this, $_REQUEST);
+                        //GameUtility::redirectToGame($this, $id);
+                        $this->redirect(Yii::app()->createURL('/payment?ci=1'));
+                    }
+                }
+            }
+        }
+        $this->render('registerimported', array(
+            'user' => $user,
+                //'userEmail' => $userEmail,
+                //'userLocation' => $userLocation,
+        ));
     }
 
     public function actionProfile() {
@@ -75,15 +156,15 @@ class clientUserController extends UserController {
             $userEmail->type = 'primary';
             $userLocation->attributes = $_POST['clientUserLocation'];
             if (!empty($userLocation))
-            $userLocation->user_id = $user->id;
+                $userLocation->user_id = $user->id;
 
             $userValidate = $user->validate();
             $userLocationValidate = $userLocation->validate();
             $userEmailValidate = $userEmail->validate();
             if ($userValidate && $userEmailValidate && $userLocationValidate) {
-                $user->password = '';//var_dump($user);var_dump($userEmail);var_dump($userLocation);exit;
-                if($userLocation->type == '')
-                $userLocation->type = 'primary';
+                $user->password = ''; //var_dump($user);var_dump($userEmail);var_dump($userLocation);exit;
+                if ($userLocation->type == '')
+                    $userLocation->type = 'primary';
                 $user->save();
                 $userEmail->save();
                 $userLocation->save();
@@ -133,48 +214,47 @@ class clientUserController extends UserController {
 
     public function actionLoginOld($id = NULL) {
 
-                if (!Yii::app()->user->isGuest) {
-                    $this->redirect($this->createUrl('/user/logout'));
+        if (!Yii::app()->user->isGuest) {
+            $this->redirect($this->createUrl('/user/logout'));
+        }
+        $this->activeNavLink = 'login';
+        $user = new clientUser;
+
+        if ($id == NULL) {
+            $game = eGameChoice::model()->multiple()->isActive()->with('gameChoiceAnswers')->find();
+        } else {
+            $game = eGameChoice::model()->multiple()->with('gameChoiceAnswers')->findByPk((int) $id);
+        }
+
+        $user->setScenario('login');
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'user-login-form') {
+            echo CActiveForm::validate($user);
+            Yii::app()->end();
+        }
+        if (isset($_POST['clientUser'])) {
+            $user->attributes = $_POST['clientUser'];
+            if (UserUtility::login($user)) {
+
+                if (!empty(Yii::app()->user->returnUrl) && Yii::app()->user->returnUrl !== "/") {
+                    $this->redirect(Yii::app()->user->returnUrl);
                 }
-                $this->activeNavLink = 'login';
-                $user = new clientUser;
 
-                if ($id == NULL) {
-                    $game = eGameChoice::model()->multiple()->isActive()->with('gameChoiceAnswers')->find();
-                } else {
-                    $game = eGameChoice::model()->multiple()->with('gameChoiceAnswers')->findByPk((int) $id);
-                }
+                $checkDuplicateEntry = GameUtility::isDuplicateUserGame($user->id, 60);
 
-                $user->setScenario('login');
-                if (isset($_POST['ajax']) && $_POST['ajax'] === 'user-login-form') {
-                    echo CActiveForm::validate($user);
-                    Yii::app()->end();
-                }
-                if (isset($_POST['clientUser'])) {
-                    $user->attributes = $_POST['clientUser'];
-                    if (UserUtility::login($user)) {
+                if ($checkDuplicateEntry == FALSE) {
 
-                        if (!empty(Yii::app()->user->returnUrl) && Yii::app()->user->returnUrl !== "/") {
-                            $this->redirect(Yii::app()->user->returnUrl);
-                        }
-
-                            $checkDuplicateEntry = GameUtility::isDuplicateUserGame($user->id, 60);
-
-                            if ($checkDuplicateEntry == FALSE) {
-
-                                if (GameUtility::updateResponseUser(Yii::app()->user->getId())) {
-
-                                }
-                            }
-
-                            $this->redirect($this->createUrl('/playnow'));
-                            AuditUtility::save($this, $_REQUEST);
-
-                    } else {
-                        Yii::app()->user->setFlash('error', Yii::t('youtoo', Yii::app()->params['flashMessage']['loginError']));
-                        $this->redirect($this->createUrl('/user/loginnew'));
+                    if (GameUtility::updateResponseUser(Yii::app()->user->getId())) {
+                        
                     }
                 }
+
+                $this->redirect($this->createUrl('/playnow'));
+                AuditUtility::save($this, $_REQUEST);
+            } else {
+                Yii::app()->user->setFlash('error', Yii::t('youtoo', Yii::app()->params['flashMessage']['loginError']));
+                $this->redirect($this->createUrl('/user/loginnew'));
+            }
+        }
 
         $this->render('login', array('model' => $user,
         ));
@@ -198,16 +278,14 @@ class clientUserController extends UserController {
             $user->attributes = $_POST['clientUser'];
             if (ClientUserUtility::login($user)) {
 
-                if(!empty(Yii::app()->user->returnUrl) && Yii::app()->user->returnUrl !== "/") {
+                if (!empty(Yii::app()->user->returnUrl) && Yii::app()->user->returnUrl !== "/") {
                     $this->redirect(Yii::app()->user->returnUrl);
                 }
 
                 //$geoLocation = GeoUtility::GeoLocation();
-
                 //if(!$geoLocation['isExists']) {
                 //    $this->redirect($this->createUrl('/geocoordinates'));
                 //}
-
 //                if (is_null($validGeoUser)) {
 //                    $this->redirect($this->createUrl('/geocoordinates'));
 //                } elseif(!is_null($validGeoUser) && $validGeoUser->is_validlocation == 0 && $validGeoUser->city == 'unknown') {
@@ -226,13 +304,12 @@ class clientUserController extends UserController {
                 if ($checkDuplicateEntry == FALSE) {
 
                     if (GameUtility::updateResponseUser(Yii::app()->user->getId())) {
-
+                        
                     }
                 }
-                
+
                 $this->redirect($this->createUrl('/payment?ci=1'));
                 AuditUtility::save($this, $_REQUEST);
-
             } else {
                 Yii::app()->user->setFlash('error', Yii::t('youtoo', Yii::app()->params['flashMessage']['loginError']));
                 $this->redirect($this->createUrl('/user/login'));
@@ -240,7 +317,7 @@ class clientUserController extends UserController {
         }
 
         $this->render('loginnew', array('user' => $user,
-                                        'game_url' => '/'.$id,
+            'game_url' => '/' . $id,
         ));
     }
 
@@ -296,53 +373,53 @@ class clientUserController extends UserController {
     }
 
     public function actionLoginPay($id = NULL) {
-                if (!Yii::app()->user->isGuest) {
-                    $this->redirect($this->createUrl('/user/logout'));
-                }
-                $this->activeNavLink = 'login';
-                $user = new clientUser;
-                $tw_user = eUserTwitter::model()->findByAttributes(array('user_id' => Yii::app()->user->getId()));
+        if (!Yii::app()->user->isGuest) {
+            $this->redirect($this->createUrl('/user/logout'));
+        }
+        $this->activeNavLink = 'login';
+        $user = new clientUser;
+        $tw_user = eUserTwitter::model()->findByAttributes(array('user_id' => Yii::app()->user->getId()));
 
-                if ($id == NULL) {
-                    $game = eGameChoice::model()->multiple()->isActive()->with('gameChoiceAnswers')->find();
+        if ($id == NULL) {
+            $game = eGameChoice::model()->multiple()->isActive()->with('gameChoiceAnswers')->find();
+        } else {
+            $game = eGameChoice::model()->multiple()->with('gameChoiceAnswers')->findByPk((int) $id);
+        }
+
+        $user->setScenario('loginpay');
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'user-login-register-pay-form') {
+            echo CActiveForm::validate($user);
+            Yii::app()->end();
+        }
+        if (isset($_POST['clientUser'])) {
+            $user->attributes = $_POST['clientUser'];
+            if (UserUtility::login($user)) {
+                if (GameUtility::updateResponseUser(Yii::app()->user->getId())) {
+                    
+                }
+
+                AuditUtility::save($this, $_REQUEST);
+
+                if (!is_null(Yii::app()->session['gamechoiceresponseId'])) {
+                    $gameChoiceResponseID = Yii::app()->session['gamechoiceresponseId'];
                 } else {
-                    $game = eGameChoice::model()->multiple()->with('gameChoiceAnswers')->findByPk((int) $id);
+                    $gameChoiceResponseID = 1;
                 }
 
-                $user->setScenario('loginpay');
-                if (isset($_POST['ajax']) && $_POST['ajax'] === 'user-login-register-pay-form') {
-                    echo CActiveForm::validate($user);
-                    Yii::app()->end();
+                $gameManager = GameUtility::managerPayPlay(Yii::app()->user->getId());
+
+                if (empty($_POST['stripeToken'])) {
+                    $this->redirect($this->createUrl('/site/redeem'));
+                } else {
+
+                    $transactionID = PaymentUtility::stripePaymentGame("game_choice", $gameManager['game_id'], $_POST['stripeToken']);
+                    $this->redirect(Yii::app()->createURL("/paymentdone/thankyou/{$transactionID}"));
                 }
-                if (isset($_POST['clientUser'])) {
-                    $user->attributes = $_POST['clientUser'];
-                    if (UserUtility::login($user)) {
-                        if(GameUtility::updateResponseUser(Yii::app()->user->getId())) {
-
-                        }
-
-                        AuditUtility::save($this, $_REQUEST);
-
-                        if(!is_null(Yii::app()->session['gamechoiceresponseId'])) {
-                            $gameChoiceResponseID = Yii::app()->session['gamechoiceresponseId'];
-                        } else {
-                            $gameChoiceResponseID = 1;
-                        }
-
-                        $gameManager = GameUtility::managerPayPlay(Yii::app()->user->getId());
-
-                        if (empty($_POST['stripeToken'])) {
-                            $this->redirect($this->createUrl('/site/redeem'));
-                        } else {
-
-                            $transactionID = PaymentUtility::stripePaymentGame("game_choice", $gameManager['game_id'], $_POST['stripeToken']);
-                            $this->redirect(Yii::app()->createURL("/paymentdone/thankyou/{$transactionID}"));
-                        }
-                    } else {
-                        Yii::app()->user->setFlash('error', Yii::t('youtoo', Yii::app()->params['flashMessage']['loginError']));
-                        $this->redirect($this->createUrl('/user/loginpay'));
-                    }
-                }
+            } else {
+                Yii::app()->user->setFlash('error', Yii::t('youtoo', Yii::app()->params['flashMessage']['loginError']));
+                $this->redirect($this->createUrl('/user/loginpay'));
+            }
+        }
 
         $this->render('loginpay', array('model' => $user, 'type' => 'l'));
     }
@@ -401,29 +478,29 @@ class clientUserController extends UserController {
                 $user->setScenario('login');
                 UserUtility::login($user);
 
-                    if ($game && !is_null(Yii::app()->session['gamechoiceresponseId'])) {
-                        $gameresponse = eGameChoiceResponse::model()->findByPK(Yii::app()->session['gamechoiceresponseId']);
-                        $gameresponseuser_id = Yii::app()->user->getId();
-                        $gameresponseuser = clientUser::model()->findByPk($gameresponseuser_id);
-                        $gameresponse->user_id = isset($gameresponseuser->id) ? $gameresponseuser->id : $user->id;
-                        if ($gameresponse->validate()) {
-                            $gameresponse->update(array('user_id'));
-                        }
-                    } else {
-                        $this->redirect($this->createUrl('site/index'));
+                if ($game && !is_null(Yii::app()->session['gamechoiceresponseId'])) {
+                    $gameresponse = eGameChoiceResponse::model()->findByPK(Yii::app()->session['gamechoiceresponseId']);
+                    $gameresponseuser_id = Yii::app()->user->getId();
+                    $gameresponseuser = clientUser::model()->findByPk($gameresponseuser_id);
+                    $gameresponse->user_id = isset($gameresponseuser->id) ? $gameresponseuser->id : $user->id;
+                    if ($gameresponse->validate()) {
+                        $gameresponse->update(array('user_id'));
                     }
+                } else {
+                    $this->redirect($this->createUrl('site/index'));
+                }
 
-                    AuditUtility::save($this, $_REQUEST);
+                AuditUtility::save($this, $_REQUEST);
 
-                    if (isset(Yii::app()->session['return']) && Yii::app()->session['return'] == "actel/payment") {
-                        Yii::app()->session['return'] = null;
-                        $this->redirect($this->createUrl('site/index'));
-                    } else {
-                        Yii::app()->session['return'] = null;
-                        $this->redirect($this->createUrl('site/index'));
-                    }
+                if (isset(Yii::app()->session['return']) && Yii::app()->session['return'] == "actel/payment") {
+                    Yii::app()->session['return'] = null;
+                    $this->redirect($this->createUrl('site/index'));
+                } else {
+                    Yii::app()->session['return'] = null;
+                    $this->redirect($this->createUrl('site/index'));
                 }
             }
+        }
         $this->render('login', array(
             'model' => $user,
         ));
@@ -452,7 +529,7 @@ class clientUserController extends UserController {
             $user->attributes = $_POST['clientUser'];
             $userLocation->attributes = $_POST['clientUserLocation'];
             $user->birthday = '0000-00-00';
-            if($this->isMobile()) {
+            if ($this->isMobile()) {
                 $user->source = 'mobile';
             }
             $user->source = 'web';
@@ -479,7 +556,7 @@ class clientUserController extends UserController {
                     $pageSettings[$v->attribute] = $v->value;
                 }
 
-                if(!empty($pageSettings['game_free_credit_on_reg']) && $pageSettings['game_free_credit_on_reg'] == 1) {
+                if (!empty($pageSettings['game_free_credit_on_reg']) && $pageSettings['game_free_credit_on_reg'] == 1) {
                     $transaction = new eTransaction;
                     $transaction->user_id = Yii::app()->user->getId();
                     $transaction->processor = 'credit';
@@ -498,8 +575,8 @@ class clientUserController extends UserController {
                     $creditTransaction->save();
                 }
 
-                $result = MailUtility::send('welcome', $userEmail->email, array('link' =>Yii::app()->createAbsoluteUrl("/", array()),'storelink' => Yii::app()->createAbsoluteUrl("/payment?ci=1", array())), false);
-                if($result) {
+                $result = MailUtility::send('welcome', $userEmail->email, array('link' => Yii::app()->createAbsoluteUrl("/", array()), 'storelink' => Yii::app()->createAbsoluteUrl("/payment?ci=1", array())), false);
+                if ($result) {
                     AuditUtility::save($this, $_REQUEST);
 
                     GameUtility::redirectToGame($this, $id);
@@ -577,7 +654,7 @@ class clientUserController extends UserController {
 
                     AuditUtility::save($this, $_REQUEST);
 
-                    if(!is_null(Yii::app()->session['gamechoiceresponseId'])) {
+                    if (!is_null(Yii::app()->session['gamechoiceresponseId'])) {
                         $gameChoiceResponseID = Yii::app()->session['gamechoiceresponseId'];
                     } else {
                         $gameChoiceResponseID = 1;
@@ -595,7 +672,6 @@ class clientUserController extends UserController {
                     } else {
                         $transactionID = PaymentUtility::stripePaymentGame("game_choice", $gameManager['game_id'], $_POST['stripeToken']);
                         $this->redirect(Yii::app()->createURL("/paymentdone/thankyou/{$transactionID}"));
-
                     }
                 } else {
                     Yii::app()->user->setFlash('error', Yii::t('youtoo', Yii::app()->params['flashMessage']['loginError']));
@@ -632,15 +708,15 @@ class clientUserController extends UserController {
                         if ($reset->save()) {
                             $result = MailUtility::send('password', $userEmail->email, array('link' => Yii::app()->createAbsoluteUrl("getpassword/{$reset->key}", array())), false);
                             if ($result) {
-                                Yii::app()->user->setFlash('success', Yii::t('youtoo',Yii::app()->params['flashMessage']['resetPasswordSuccess']));
+                                Yii::app()->user->setFlash('success', Yii::t('youtoo', Yii::app()->params['flashMessage']['resetPasswordSuccess']));
                             } else {
-                                Yii::app()->user->setFlash('error', Yii::t('youtoo',Yii::app()->params['flashMessage']['resetPasswordError']));
+                                Yii::app()->user->setFlash('error', Yii::t('youtoo', Yii::app()->params['flashMessage']['resetPasswordError']));
                             }
                         } else {
-                            Yii::app()->user->setFlash('error', Yii::t('youtoo',Yii::app()->params['flashMessage']['resetPasswordError']));
+                            Yii::app()->user->setFlash('error', Yii::t('youtoo', Yii::app()->params['flashMessage']['resetPasswordError']));
                         }
                     } else {
-                        Yii::app()->user->setFlash('error', Yii::t('youtoo',Yii::app()->params['flashMessage']['resetPasswordError']));
+                        Yii::app()->user->setFlash('error', Yii::t('youtoo', Yii::app()->params['flashMessage']['resetPasswordError']));
                     }
                 }
             }
@@ -661,34 +737,34 @@ class clientUserController extends UserController {
             }
         }
     }
-    
-        public function actionActivity() {
+
+    public function actionActivity() {
         $this->activeSubNavLink = 'activity';
-        
+
         $userId = Yii::app()->user->getId();
-        if(!empty($_GET['userid'])){
+        if (!empty($_GET['userid'])) {
             $userId = $_GET['userid'];
         }
-        
-        $gameHistory = GameUtility::getGameHistory($userId);//var_dump($gameHistory);exit;
-        
+
+        $gameHistory = GameUtility::getGameHistory($userId); //var_dump($gameHistory);exit;
+
         for ($i = 0; $i < count($gameHistory); $i++) {
-            
-            $total = GameUtility::getNoOfCorrectAnswersByGameId ($gameHistory[$i]['gameId']);//var_dump($total);exit;
+
+            $total = GameUtility::getNoOfCorrectAnswersByGameId($gameHistory[$i]['gameId']); //var_dump($total);exit;
             $gameHistory[$i]['NoOfCorrectAnswers'] = $total;
             if (is_null($gameHistory[$i]['BonusCredits'])) {
                 $gameHistory[$i]['NoOfCorrectAnswers'] = 'Pending';
                 //var_dump($gameHistory[$i]['NoOfQuestions']);
-                $gameHistory[$i]['BonusCredits'] = 'upto '.GameUtility::getBonusCredit($gameHistory[$i]['NoOfQuestions'], $gameHistory[$i]['NoOfQuestions']);
+                $gameHistory[$i]['BonusCredits'] = 'upto ' . GameUtility::getBonusCredit($gameHistory[$i]['NoOfQuestions'], $gameHistory[$i]['NoOfQuestions']);
             }
         }//exit;
         //$activityResults = GameUtility::getActivity(Yii::app()->user->getId());
-        
+
         $this->render('activity', array('gameHistory' => $gameHistory)
         );
     }
 
-        public function actionConnections() {
+    public function actionConnections() {
         $this->activeSubNavLink = 'connections';
         if (Yii::app()->user->isGuest) {
             $this->redirect(Yii::app()->createURL('site/index'));
@@ -740,7 +816,7 @@ class clientUserController extends UserController {
                     $existingUserInfo = eUserTwitter::model()->findByAttributes(array('twitter_user_id' => $twuser->id));
                     $existingUserName = eUser::model()->findByAttributes(array('id' => $existingUserInfo->user_id));
                     $this->render('_twitter', Array('connected' => true));
-                    Yii::app()->user->setFlash('error', Yii::t('youtoo','You have already connected this twitter account to another user ' . $existingUserName->username . '. Please login as that user or disconnect from there.'));
+                    Yii::app()->user->setFlash('error', Yii::t('youtoo', 'You have already connected this twitter account to another user ' . $existingUserName->username . '. Please login as that user or disconnect from there.'));
                     Yii::app()->end();
                 }
             }

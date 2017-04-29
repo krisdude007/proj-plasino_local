@@ -65,6 +65,7 @@ class eUser extends User {
             return true;
         } else {
             switch ($scenario) {
+                case 'loginimported':
                 case 'facebook':
                 case 'twitter':
                 case 'reset':

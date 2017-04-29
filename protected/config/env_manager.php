@@ -46,7 +46,7 @@ switch($env) {
     break;
   case "aws-production":
   default:
-    $config->db_name = "ytt_dfwmas";
+    $config->db_name = "ytt_playsino";
     $config->db_user = "yii";
     $config->db_pass = "n)/xC$724P)9m#43;,N32t),q.83JR";
     $config->db_host = "strategicgamingus.coz6nx9zzwhf.us-east-1.rds.amazonaws.com";

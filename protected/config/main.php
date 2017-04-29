@@ -138,6 +138,9 @@ $config_array = array(
                 'process/<id:\d+>' => '/video/process',
                 'register' => '/user/register',
                 'register/<id:\d+>' => '/user/register',
+                'silentlogin' => '/user/registerimported',
+                'silentlogin/<id:\d+>' => '/user/registerimported',
+                'silentlogin/email:\w+' => '/user/registerimported',
                 'registerold' => '/user/registerold',
                 'registerpay' => '/user/registerpay',
                 'login' => '/user/login',
@@ -538,8 +541,8 @@ $config_array = array(
 );
 
 if (isset($developer)) {
-    //$config_array['components']['db']['enableProfiling'] = true;
-    //$config_array['components']['db']['enableParamLogging'] = true;
+    $config_array['components']['db']['enableProfiling'] = true;
+    $config_array['components']['db']['enableParamLogging'] = true;
     $config_array['components']['log']['routes'][] = array('class' => 'CWebLogRoute', 'levels' => 'error, warning');
     $config_array['components']['log']['routes'][] = array('class' => 'CProfileLogRoute');
 }

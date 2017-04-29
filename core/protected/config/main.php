@@ -8,7 +8,7 @@ define('VIDEO_POST_FILE_EXT', '.mp4');
 
 list($tld, $host, $subdomain, $developer) = array_reverse(explode(".", $_SERVER["HTTP_HOST"]));
 $env = getenv('YOUTOO_ENVIRONMENT');
-//if ($env == 'aws-development') {
+if ($env == 'aws-production') {
     ini_set('display_errors', true);
     ini_set('display_startup_errors', 1);
     error_reporting(-1);
@@ -16,7 +16,7 @@ $env = getenv('YOUTOO_ENVIRONMENT');
     defined('YII_ENABLE_ERROR_HANDLER') or define('YII_ENABLE_ERROR_HANDLER', true);
     defined('YII_ENABLE_EXCEPTION_HANDLER') or define('YII_ENABLE_EXCEPTION_HANDLER', true);
     defined('YII_TRACE_LEVEL') or define('YII_TRACE_LEVEL', 3);
-//}
+}
 
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',

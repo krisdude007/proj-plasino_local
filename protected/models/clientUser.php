@@ -20,7 +20,7 @@ class clientUser extends eUser {
             array('first_name, last_name', 'required', 'on' => 'register, shipping, payment',),
             array('password, source', 'required', 'on' => 'register, adminRegister,twitter', 'message' => Yii::t('youtoo','Password cannot be blank')),
             array('confirm_password', 'required', 'on' => 'register', 'message' => Yii::t('youtoo','Confirm Password cannot be blank')),
-            array('username', 'required', 'on' => 'login, loginpay, getpassword, register,adminRegister, reset, shipping', 'message'=>Yii::t('youtoo','Email cannot be blank')),
+            array('username', 'required', 'on' => 'login, loginpay, loginimported, getpassword, register, adminRegister, reset, shipping, registerimported', 'message'=>Yii::t('youtoo','Email cannot be blank')),
             array('password','required', 'on' => 'login, loginpay', 'message'=>Yii::t('youtoo','Password cannot be blank')),
             array('password','length','on' => 'register', 'min' => 6,'tooShort' => Yii::t('youtoo','Password is too short (minimum is 6 characters)')),
             array('confirm_password','length','on' => 'register', 'min' => 6,'tooShort' => Yii::t('youtoo','Confirm Password is too short (minimum is 6 characters)')),
