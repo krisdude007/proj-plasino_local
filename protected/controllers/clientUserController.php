@@ -65,11 +65,10 @@ class clientUserController extends UserController {
         }
         if (isset($_POST['clientUser'])) {
             $user->attributes = $_POST['clientUser'];
-            $checkUserExists = clientUser::model()->findByAttributes(array('username' => $user->username));//var_dump($checkUserExists->username, md5($checkUserExists->password));exit;
+            $checkUserExists = clientUser::model()->findByAttributes(array('username' => $user->username));
             if (!is_null($checkUserExists)) {
                 $checkUserExists->setScenario('loginimported');
-                //$newPassword = $checkUserExists->password;
-                //$user->password = $newPassword;
+
                 ClientUserUtility::login($checkUserExists);
                 if (!empty(Yii::app()->user->returnUrl) && Yii::app()->user->returnUrl !== "/") {
                     $this->redirect(Yii::app()->user->returnUrl);
@@ -94,7 +93,6 @@ class clientUserController extends UserController {
                 $user->password = 'playsino1234';
                 $user->first_name = 'Imported';
                 $user->last_name = 'User';
-                //var_dump($user, $userEmail, $userLocation);$user->validate();var_dump($user->getErrors());$userEmail->validate();var_dump($userEmail->getErrors());$userLocation->validate();var_dump($userLocation->getErrors());exit;
                 
                 if (ClientUserUtility::register($user)) {
                     $userEmail->user_id = $user->id;
