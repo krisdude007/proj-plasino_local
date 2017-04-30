@@ -199,7 +199,7 @@ Yii::app()->facebook->initJs($output);
                     <div><a href="/marketingpage" target="_blank"><?php echo Yii::t('youtoo', 'Rules of the competition'); ?></a></div>
                     <!--<div><a href="http://DFWMAS.org"><?php // echo Yii::t('youtoo', 'Sweepstakes Regs'); ?></a></div>-->
                     <div><a data-toggle="modal" data-target="#modalTerms" href="http://www.playsino.com/"><?php echo Yii::t('youtoo', 'Terms'); ?></a></div>
-                    <div><a data-toggle="modal" data-target="#modalPrivacy" href="http://www.playsino.com/><?php echo Yii::t('youtoo', 'Privacy Policy'); ?></a></div>
+                    <div><a data-toggle="modal" data-target="#modalPrivacy" href="http://www.playsino.com/"><?php echo Yii::t('youtoo', 'Privacy Policy'); ?></a></div>
                 </div>
             </div>
         </div>
