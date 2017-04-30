@@ -177,15 +177,15 @@ Yii::app()->facebook->initJs($output);
         <div id="pageFooterDrop">
             <div  class="row col-sm-12" style='padding-left: 0px;max-width: 1200px;'>
                 <div class="col-sm-3">
-                    <a target="_blank" href="http://DFWMAS.org">
+                    <a target="_blank" href="http://www.playsino.com">
                         <img src="/webassets/images/logo_footer.png" style="height:auto; margin-top: 30px; width:100%;max-width:160px;"/></a></li>
                 </div>
                 <div class="col-sm-3" id="aboutDrop">
                     <div class="dropHead"><?php echo Yii::t('youtoo', 'ABOUT'); ?></div>
-                    <div><a target="_blank" href="http://DFWMAS.org"><?php echo Yii::t('youtoo', 'DFWMAS'); ?></a></div>
+                    <div><a target="_blank" href="http://www.playsino.com/"><?php echo Yii::t('youtoo', 'Playsino'); ?></a></div>
                     <div><a target="_blank" href="/marketingpage"><?php echo Yii::t('youtoo', 'Sweepstakes'); ?></a></div>
                     <!--<div><a data-toggle="modal" data-target="#modalLaIsla" href="http://DFWMAS.org"><?php // echo Yii::t('youtoo', 'Game Rules');     ?></a></div>-->
-                    <div><a href="http://DFWMAS.org/club-news"><?php echo Yii::t('youtoo', 'Press and Media'); ?></a></div>
+                    <div><a href="http://www.playsino.com/#press"><?php echo Yii::t('youtoo', 'Press and Media'); ?></a></div>
                 </div>
                 <div class="col-sm-3" id="helpDrop">
                     <div class="dropHead"><?php echo Yii::t('youtoo', 'HELP'); ?></div>
@@ -198,8 +198,8 @@ Yii::app()->facebook->initJs($output);
                     <div class="dropHead"><?php echo Yii::t('youtoo', 'LEGAL'); ?></div>
                     <div><a href="/marketingpage" target="_blank"><?php echo Yii::t('youtoo', 'Rules of the competition'); ?></a></div>
                     <!--<div><a href="http://DFWMAS.org"><?php // echo Yii::t('youtoo', 'Sweepstakes Regs'); ?></a></div>-->
-                    <div><a data-toggle="modal" data-target="#modalTerms" href="http://DFWMAS.org"><?php echo Yii::t('youtoo', 'Terms'); ?></a></div>
-                    <div><a data-toggle="modal" data-target="#modalPrivacy" href="http://DFWMAS.org"><?php echo Yii::t('youtoo', 'Privacy Policy'); ?></a></div>
+                    <div><a data-toggle="modal" data-target="#modalTerms" href="http://www.playsino.com/"><?php echo Yii::t('youtoo', 'Terms'); ?></a></div>
+                    <div><a data-toggle="modal" data-target="#modalPrivacy" href="http://www.playsino.com/><?php echo Yii::t('youtoo', 'Privacy Policy'); ?></a></div>
                 </div>
             </div>
         </div>

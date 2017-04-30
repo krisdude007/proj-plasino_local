@@ -4,7 +4,7 @@ class clientUser extends eUser {
 
     public $age_accepted;
     public $eligibility_accepted;
-    public $dfwmas_eligible;
+    public $game_eligible;
     public $confirm_password;
     public $newPassword;
     public $newPasswordConfirm;
@@ -34,12 +34,12 @@ class clientUser extends eUser {
             array('username', 'unique', 'on' => 'register,adminRegister, twitter, shipping', 'message'=> Yii::t('youtoo','Sorry, this email has already been used')),
             array('terms_accepted', 'numerical', 'integerOnly' => true),
             array('terms_accepted', 'required', 'requiredValue' => 1, 'on' => 'register', 'message'=>Yii::t('youtoo','You must accept the Terms of Use and Privacy Policy')),
-            array('age_accepted, eligibility_accepted, dfwmas_eligible', 'numerical', 'integerOnly' => true),
+            array('age_accepted, eligibility_accepted, game_eligible', 'numerical', 'integerOnly' => true),
             array('username', 'email', 'message' => Yii::t('youtoo', 'Username is not a valid email address')),
             //array('username', 'numerical', 'integerOnly' => true, 'message'=>Yii::t('youtoo','Phone number must be a number')),
             array('age_accepted', 'required', 'requiredValue' => 1, 'on' => 'register', 'message'=>Yii::t('youtoo','You must verify you are at least 21 years of age')),
             array('eligibility_accepted', 'required', 'requiredValue' => 1, 'on' => 'register', 'message'=>Yii::t('youtoo','You must confirm that you are not playing from one of the above mentioned states')),
-            array('dfwmas_eligible', 'required', 'requiredValue' => 1, 'on' => 'register', 'message'=>Yii::t('youtoo','You must confirm that you are a member of DFWMAS')),
+            array('game_eligible', 'required', 'requiredValue' => 1, 'on' => 'register', 'message'=>Yii::t('youtoo','You must confirm that you are a member')),
             array('password, first_name, last_name, source, paypal_preapproval_key', 'length', 'max' => 255),
             array('gender', 'length', 'max' => 1),
             array('role', 'length', 'max' => 14),
@@ -55,7 +55,7 @@ class clientUser extends eUser {
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
             array('paypal_preapproval_endingdate', 'safe'),
-            array('email, userPermissions, id, username, password, birthday, gender, first_name, last_name, terms_accepted, age_accepted, eligibility_accepted, dfwmas_eligible, source, paypal_preapproval_key, created_on, updated_on', 'safe', 'on' => 'search'),
+            array('email, userPermissions, id, username, password, birthday, gender, first_name, last_name, terms_accepted, age_accepted, eligibility_accepted, game_eligible, source, paypal_preapproval_key, created_on, updated_on', 'safe', 'on' => 'search'),
         );
     }
 

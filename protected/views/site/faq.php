@@ -17,7 +17,7 @@
                         <div class="faq panel-heading" style='padding: 0px;'>
                             <h3 class="faq panel-title" style='padding: 5px;text-align: left;'><span class="pull-left clickable panel-collapsed"><i class="glyphicon glyphicon-chevron-right" style='top: 0px;'></i>&nbsp;&nbsp;</span>What is DFW Marine Aquarium Society?</h3>
                         </div>
-                        <div class="faq panel-body" style='background-color: #eeeeee; border-color: #eeeeee; display: none; margin: 15px; text-align: left;'>DFWMAS is a 501c7 which is Dedicated to promoting public interest in the marine aquarium hobby and the advancement of knowledge in the husbandry of closed ecosystems. Your contribution is not tax deductible for Federal Income tax purposes but will be used to support our mission. </div>
+                        <div class="faq panel-body" style='background-color: #eeeeee; border-color: #eeeeee; display: none; margin: 15px; text-align: left;'>Playsino is a 501c7 which is Dedicated to promoting public interest in the marine aquarium hobby and the advancement of knowledge in the husbandry of closed ecosystems. Your contribution is not tax deductible for Federal Income tax purposes but will be used to support our mission. </div>
                     </div>
                 </div>
                 <br/>

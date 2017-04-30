@@ -14,7 +14,7 @@ $config_array = array(
         'client.components.*',
     ),
     //'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-    'name' => 'DFWMAS-iSweepsUSA',
+    'name' => 'Playsino-iSweepsUSA',
     'timeZone' => 'America/Chicago',
     // preloading 'log' component
     'preload' => array('log'),
@@ -289,7 +289,7 @@ $config_array = array(
         'session' => array('durationOffset' => 60 * 5,
             'duration' => 86400),
         'email' => array(
-            'title' => 'DFWMAS EMAIL',
+            'title' => 'Plasino EMAIL',
             'mailto' => 'youtootechsupport@youtootech.com',
             'showEmailAssistanceLink' => true,
         ),
@@ -527,7 +527,7 @@ $config_array = array(
             'invalidFiletype' => Yii::t('youtoo','Invalid file type.'),
         ),
         'global' => array(
-        'replaceValue' => 'DFWMAS',
+        'replaceValue' => 'Playsino',
         ),
         'custom_params' => array(
         'client_support_email' => 'danny.ohman@youtootech.com, bhrobinson@me.com', //CLIENT_SUPPORT_EMAIL

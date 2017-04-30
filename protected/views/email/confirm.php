@@ -39,12 +39,12 @@
                         <?php echo Yii::t('youtoo','Login and Play Now for your chance to WIN!'); ?>
                     </p>
                     <p style="font-family: museosans,museo, sans-serif;">
-                        <a style="font-family: museosans,museo, sans-serif; color: #ea8417;" href="{link}">DFWMAS</a>
+                        <a style="font-family: museosans,museo, sans-serif; color: #ea8417;" href="{link}">Playsino</a>
                     </p>
                     <p style="font-family: museosans,museo, sans-serif;">
                         <?php echo Yii::t('youtoo', 'Good luck!'); ?><br>
                         <?php echo Yii::t('youtoo','The iSweepsUSA Team'); ?><br>
-                        <a href='http://DFWMAS.org'>DFWMAS</a>
+                        <a href='http://www.playsino.com'>Playsino</a>
                     </p>
                 </div>
             </div>
