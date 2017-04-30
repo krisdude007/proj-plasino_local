@@ -744,18 +744,17 @@ class clientUserController extends UserController {
             $userId = $_GET['userid'];
         }
 
-        $gameHistory = GameUtility::getGameHistory($userId); //var_dump($gameHistory);exit;
+        $gameHistory = GameUtility::getGameHistory($userId); 
 
         for ($i = 0; $i < count($gameHistory); $i++) {
 
             $total = GameUtility::getNoOfCorrectAnswersByGameId($gameHistory[$i]['gameId']); //var_dump($total);exit;
             $gameHistory[$i]['NoOfCorrectAnswers'] = $total;
             if (is_null($gameHistory[$i]['BonusCredits'])) {
-                $gameHistory[$i]['NoOfCorrectAnswers'] = 'Pending';
-                //var_dump($gameHistory[$i]['NoOfQuestions']);
-                $gameHistory[$i]['BonusCredits'] = 'upto ' . GameUtility::getBonusCredit($gameHistory[$i]['NoOfQuestions'], $gameHistory[$i]['NoOfQuestions']);
+                //$gameHistory[$i]['NoOfCorrectAnswers'] = 'Pending';
+                $gameHistory[$i]['BonusCredits'] = 'upto ' . GameUtility::getOneBonusCreditPerCorrectAnswer($gameHistory[$i]['NoOfQuestions'], $gameHistory[$i]['NoOfCorrectAnswers']);
             }
-        }//exit;
+        }//var_dump($gameHistory);exit;
         //$activityResults = GameUtility::getActivity(Yii::app()->user->getId());
 
         $this->render('activity', array('gameHistory' => $gameHistory)

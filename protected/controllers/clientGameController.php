@@ -546,7 +546,9 @@ class clientGameController extends GameController {
         if (empty($user_id)) {
             $this->redirect($this->createUrl("/login"));
         }
-        //$this->redirect($this->createUrl("/?games=ended")); //redirect when games are stopped
+        if (eGameChoice::getNumberOfActiveGames() <= 0) { 
+        $this->redirect($this->createUrl("/?games=ended")); //redirect when games are stopped
+        }
         $user = clientUser::model()->findByPK($user_id);
 
         //if (isset($_GET['noOfQs']) && $_GET['noOfQs'] > 0) {
