@@ -170,8 +170,8 @@ $gameEntry = array (
            <div class="row" style="margin-right:0; margin-left:0;">
 <!--           <div class="col-sm-2"></div>-->
             <div class="prices-grid" style="">
-                <?php for ($i = 1; $i <= 1; $i++) { ?>
-                    <div class="paymentOptionsTop" style="min-height: 222px;">
+                <?php for ($i = 1; $i < 5; $i++) { ?>
+                    <div class="paymentOptionsTop" id="paymentOptionsTop<?= $i;?>" style="min-height: 222px;">
                         <div class="ribbon"><h3 style="margin-top: 0px; min-height: 43px; padding-top: 8px; margin-bottom: 0px; font-weight: 300;">$<?php echo $payCashArray[$i]; ?></h3></div>
                         
                         <div class="gameentry-header" style='margin-top: 5px;'><?php //echo $payCreditArray[$i]; ?><?php echo Yii::t('youtoo', $gameEntry[$payCreditArray[$i]]); ?></div><hr style="margin-top: 5px; margin-bottom: 5px;"/>

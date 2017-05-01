@@ -29,10 +29,7 @@ foreach ($game->gameChoiceAnswers as $answer) {
         background-color:#d0d0d0;
     }
 
-    .count {
-        color: #00cccc;
-        margin-bottom: 10px;
-    }
+    
 
 </style>
 
@@ -46,7 +43,7 @@ margin-left: 0px;'>
                 <div class="form" style="position: relative; top: 22px; min-height: 740px; background-color:#002E42; clear: both;">
                     <!--                <div class='gameEntry' style='width: 100%; background-color: #eeeeee; min-height: 299px; min-width: 823px;'>-->
                     <div class="game" class="fab-left fab-voting-left" style='clear: both;'>
-                        <div class="col-xs-11 col-sm-11 col-lg-11 col-sm-offset-1" style="padding-left: 0px; padding-right: 0px; clear: both; margin-left: 5.3%;">
+                        <div class="col-xs-12 col-sm-12 col-lg-12" style="padding-left: 0px; padding-right: 0px; clear: both;">
                             <div id='resultCount' class='count' style="margin-top: 15px;">You have : <?php echo Yii::app()->session['noOfRemaining']; ?> answers left.</div>
                             <div class="table-responsive" style="height: 630px; overflow: auto; position: relative;  width: 98%; margin-top: 20px;">
                                 <?php //var_dump(Yii::app()->session['choiceList']);  ?>
