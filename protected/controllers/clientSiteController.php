@@ -87,7 +87,15 @@ class clientSiteController extends SiteController {
 
         $allCorrect = eGameChoiceResponse::model()->isCorrect()->findAllByAttributes(array('game_unique_id' => Yii::app()->session['gameUniqueId'])); //var_dump($countCorrect);exit;
         if (!empty($allCorrect)) {
+            $allAnswers = eGameChoiceResponse::model()->findAllByAttributes(array('game_unique_id' => Yii::app()->session['gameUniqueId'])); //var_dump($countCorrect);exit;
             $countCorrect = sizeof($allCorrect);
+            
+            foreach ($allAnswers as $aa) {
+                    $aa->bonus_credit = $countCorrect;
+                    if($aa->validate()) {
+                        $aa->update(array('bonus_credit'));
+                    }
+                }            
         } else {
             $countCorrect = 0;
         }
