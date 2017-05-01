@@ -8,7 +8,7 @@
             </div>
             <div class="modal-body" style='color:#000000'>
                <p>
-    DFWMAS’S SWEEPSTAKES FAQ
+    Playsino’s SWEEPSTAKES FAQ
 </p>
 <p>
     <strong>Do I need to pay to enter the sweepstakes?</strong>
@@ -21,7 +21,7 @@
     <strong>What is the price to enter if I choose the paid method?</strong>
 </p>
 <p>
-    The sweepstakes costs $1 (one US dollar) dollar to enter when using the paid method.
+    The sweepstakes start at $1 (one US dollar) dollar to enter when using the paid method.
 </p>
 <p>
     <strong></strong>

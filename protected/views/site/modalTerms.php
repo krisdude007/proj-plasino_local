@@ -11,7 +11,7 @@
     <strong><u> </u></strong>
 </p>
 <p align="center">
-    DFWMAS Sweepstakes &amp; Contests
+    Playsino Sweepstakes &amp; Contests
     <br/>
     Terms and Conditions / Official Rules
 </p>
@@ -28,14 +28,14 @@
 </p>
 <p>
     <strong>Sponsor, Administrator, Operator, and Prize Provider:</strong>
-    DFW Marine Aquarium Society.
+    Playsino, Inc.
 </p>
 <p>
     <strong>Software Provider:</strong>
     iSweepsUSA, LLC.
 </p>
 <p>
-    <strong>By entering this Sweepstakes (the "Promotion" or the “Sweepstakes”), connected to DFW Marine Aquarium Society  (the “Operator,” “Sweepstakes Provider,” or “Sweepstakes Operator”) and operated on the website accessible at the domain "www.dfwmas.org" (the "Website") with the Software Provider iSweepsUSA, LLC (the “Provider”), you (the “Participant” or “Winner” or “Player” or “Participant”) hereby accept and agree to the official rules (the "Official Rules") of this Promotion, and the decision of the Operator in connection with the Promotion and Sweepstakes (as defined below), whose decision is final. Operator and Provider, along with their respective, parents, affiliated and subsidiary companies and advertising and promotion agencies are collectively known as the “Sweepstakes Entities.”</strong>
+    <strong>By entering this Sweepstakes (the "Promotion" or the “Sweepstakes”), connected to Playsino  (the “Operator,” “Sweepstakes Provider,” or “Sweepstakes Operator”) and operated on the website accessible at the domain "www.playsino.com" (the "Website") with the Software Provider iSweepsUSA, LLC (the “Provider”), you (the “Participant” or “Winner” or “Player” or “Participant”) hereby accept and agree to the official rules (the "Official Rules") of this Promotion, and the decision of the Operator in connection with the Promotion and Sweepstakes (as defined below), whose decision is final. Operator and Provider, along with their respective, parents, affiliated and subsidiary companies and advertising and promotion agencies are collectively known as the “Sweepstakes Entities.”</strong>
 </p>
 <p>
     By entering any details into, and/or purchase any products or using any services on the website, Participant agrees that: he/she has understood and accepted these terms and privacy policy, has the mental capacity to take responsibility for its own actions and can agree to all terms, and is responsible for complying with all applicable laws and will not access the Website from a locale where Operator has restricted access for commercial or legal reasons.  These terms will always take precedence to the extent there are any inconsistencies between the terms and any of the content contained within the rules, or any other document referred to within the following sections.  If Participant is unsure about the meaning of any sweepstakes rules or terminology, Participant should not participate until confident that he/she fully understands these rules. Following Participant’s initial acceptance, Participant should check the terms for any updates with any continued use of the Website.  If Participant does not accept any changes that have been made to the terms, Participant should stop participating in the Sweepstakes. 
@@ -47,7 +47,7 @@
 </p>
 <p>
     <strong>3. Promotional Period:</strong>
-    The Promotion begins on or around April 17, 2017, at 12:00:01 AM Central Time ("=CT") and ends at 11:59:59 PM CT on May 8, 2017 (the "Promotional Period"). Administrator is the official timekeeper of the Sweepstakes.   
+    The Promotion begins on or around May 14, 2017, at 12:00:01 AM Central Time ("=CT") and ends at 11:59:59 PM CT on June 11, 2017 (the "Promotional Period"). Administrator is the official timekeeper of the Sweepstakes.   
 
 </p>
 <p>
@@ -56,9 +56,10 @@
 </p>
 <p>
     <strong>Step One: Open an Account:</strong>
-    Participant must open an account at dfwmas.isweepsusa.com by completing
-    the enrollment form. There is no charge to open an account.
-</p>
+    Click the link in a Playsino game to create an account. 
+    Participant must open an account to participate at Playsino.isweepsusa.com. 
+    There is no charge to open an account.
+    </p>
 <p>
     <strong>Step Two: Obtain Game Credits: </strong>
     Participants can obtain Game Credits to be used to obtain Sweepstakes Entry
@@ -66,9 +67,9 @@
 </p>
 <ul type="disc">
     <li>
-        <strong>Obtain Game Credits by Making A Donation:</strong>
-        Participants will obtain one Game Credit for every $5 donated during
-the Promotion Period.        <strong>Obtain Game Credits Without A Donation:</strong> To receive a free sweepstakes entry without contributing, mail  an envelope containing your name, email address, and the words Free Entry Method into the DFWMAS Sweepstakes to DFWMAS Sweepstakes, C/O iSweepsUSA, LLC 3101 S Russell, Missoula, MT 59801  Limit one free sweepstake entryrequest per envelope  All requests for free sweepstake entries must be postmarked no later than 11:59 PM CT on ending date of Promotional Period referenced in paragraph 3  and received no later than 7 days following ending date. <u>All requests for game credits must be postmarked no later than</u>
+        <strong>Obtain Game Credits by Making a Purchase:</strong>
+        Participants will obtain one Game Credit for every $5 paid during
+the Promotion Period.        <strong>Obtain Game Credits Without A purchase:</strong> To receive a free sweepstakes entry without contributing, mail  an envelope containing your name, email address, and the words Free Entry Method into the Playsino Sweepstakes to Playsino Sweepstakes, C/O iSweepsUSA, LLC 3101 S Russell, Missoula, MT 59801  Limit one free sweepstake entryrequest per envelope  All requests for free sweepstake entries must be postmarked no later than 11:59 PM CT on ending date of Promotional Period referenced in paragraph 3  and received no later than 7 days following ending date. <u>All requests for game credits must be postmarked no later than</u>
         11:59 PM EST on ending date. Mail for <strong>Free Entry Method</strong> to any other address will be
         disqualified and destroyed. •   Limit one game credit request per outer envelope.
 
@@ -87,18 +88,12 @@ Redeem Game Credits to obtain Sweepstakes Game Entries.  Each Sweepstakes Game E
 </p>
 <p>
     <strong>6. Sweepstakes Entry Periods and Prize Drawing Schedule: </strong>
-    Entry Period begins on or about April 17th and ends at 11:59:59 May 8, 2017.  Drawings will be conducted from all valid entries as follows:
+    Entry Period begins on or about May 14th and ends at 11:59:59 June 11, 2017.  Drawings will be conducted from all valid entries as follows:
 </p>
 <p>
-    1st Sweepstakes drawing will be conducted on or about May 1, 2017 from all valid entries from 12:00:01 Monday, April 17, 2017 until 11;59:59 CT on Sunday April 23, 2017. 
+     Sweepstakes drawing will be conducted on or about July 1, 2017 from all valid entries from 12:00:01 Monday, May 14, 2017 until 11;59:59 CT on Sunday June 11, 2017. 
 </p>
-<p>
-    2nd Sweepstakes drawing will be conducted on or about May 8, 2017 from all valid Entries from 12:00:01 AM Monday, April 17, 2017, until  11:59:59 Sunday April 30th, 2017.
-</p>
-<p>
-    3rd Sweepstakes drawing will be conducted on or about May 15, 2017 from all valid Entries from 12:01:01  Monday, April 17, 2017, until 11:59:59 Sunday May 8, 2017.
 
-</p>
 <p>
 </p>
 <p>
@@ -106,31 +101,9 @@ Redeem Game Credits to obtain Sweepstakes Game Entries.  Each Sweepstakes Game E
     Each individual Sweepstakes shall award one (1) prize (each, a "Prize" and collectively, the "Prizes").  Prizes to be awarded for the Sweepstakes are as follows. 
 </p>
 <p>
-    1st Sweepstakes: One (1) reef octopuss ss110 with an approximate retail
-    value ("ARV") of $180 USD (one hundred eighty US dollars).
+    Sweepstakes: $10,000 (ten thousand US dollars).
 </p>
-<p>
-    2nd Sweepstakes: One (1) EcoTech MP 40 fish tank motor with an "ARV" of
-    $350 USD (three hundred fifty US dollars).
-</p>
-<p>
-    3rd Sweepstakes: One (1) trip to the New Orleans for two to attend the
-    MACNA 2017 convention. Trip includes a travel voucher good for $1,500
-    travel voucher and two tickets to the convention, with an ARV $1,700 USD
-    (one thousand seven hundred US dollars).
-</p>
-<p>
-    Voucher is only redeemable for purchases with Welcome Aboard Travel of Reno.  Voucher may be redeemed for any air transportation, hotel rooms, or rental cars purchased from and issued by Welcome Aboard Travel of Reno.
-    <br/>
-    <br/>
-    The price of each transaction paid for by the Voucher will be debited
-    against the balance on the Voucher. If the price for a transaction is
-    greater than the balance on the Voucher, the purchaser must pay the
-    difference. If the price for a transaction is less than the balance on the
-    Voucher, the unused portion will remain on the Voucher until it is redeemed
-    and the value of the Voucher is decreased to zero.
-    Voucher expires on September 1st, 2017
-</p>
+
 <p>
     Additional prizes may be given away at the sole discretion of the Provider
     and are not transferable.
@@ -217,7 +190,7 @@ Redeem Game Credits to obtain Sweepstakes Game Entries.  Each Sweepstakes Game E
 <p>
     <strong>23.</strong>
     <strong>Winner List/Official Rules:</strong>
-   For the name of the Prize winners send a self-addressed stamped envelope for receipt by May 24, 2017 to  DFWMAS Sweepstakes Winner's List, c/o iSweepsUSA, LLC., 3101 S Russell, Missoula MT 59801 ,.  For a copy of the Official Rules send a self-addressed stamped envelope to the above address marked “Official Rules: DFWMAS Sweepstakes Giveaway” for receipt by May 8, 2017.   The name of the Prize winners may be posted and the Official Rules will be posted on the Website Service. 
+   For the name of the Prize winners send a self-addressed stamped envelope for receipt by May 24, 2017 to  Playsino Sweepstakes Winner's List, c/o iSweepsUSA, LLC., 3101 S Russell, Missoula MT 59801 ,.  For a copy of the Official Rules send a self-addressed stamped envelope to the above address marked “Official Rules: Playsino Sweepstakes Giveaway” for receipt by May 8, 2017.   The name of the Prize winners may be posted and the Official Rules will be posted on the Website Service. 
 
 </p>
 <p>

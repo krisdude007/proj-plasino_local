@@ -5,7 +5,9 @@ Yii::app()->clientScript->registerScriptFile('http://cdn.jquerytools.org/1.2.7/a
 ?>
 
 <div id="pageContainer" class="container">
+    <h1 style=""><?php echo Yii::t('youtoo', 'Forgot Password'); ?></h1>
     <div class="subContainer" style="max-width: 550px;">
+       
         <?php $this->renderPartial('_sidebar', array()); ?>
         
         <div class="form-box" style=''>
@@ -20,10 +22,11 @@ Yii::app()->clientScript->registerScriptFile('http://cdn.jquerytools.org/1.2.7/a
                     )
                 ));
                 ?>
-        <h1 style="font-weight: 300; font-size: 30px;"><?php echo Yii::t('youtoo', 'Forgot Password'); ?></h1>
-        <br/>
-        <br/>
+       
+     
         <div class="row">
+           <br>
+           <br>
             <div class='form group col-sm-12'>
                 <?php echo $form->textField($model, 'username', array('placeholder' => Yii::t('youtoo','Email'), 'class' => 'form-control')); ?>
                 <?php echo $form->error($model, 'username'); ?>
@@ -46,8 +49,9 @@ Yii::app()->clientScript->registerScriptFile('http://cdn.jquerytools.org/1.2.7/a
         </div>
         <br/>
         <br/>
+        
         <div class='row'>
-            <div class='col-sm-12' ><a  href="/register" style='color:#ea8417;'><?php echo Yii::t('youtoo','Don\'t have an account?'); ?></a>
+            <div class='col-sm-12' ><a  href="/register" style='color:#492d6a;font-size:18px;'><?php echo Yii::t('youtoo','Don\'t have an account?'); ?></a>
             </div>
         </div>
         <br/>

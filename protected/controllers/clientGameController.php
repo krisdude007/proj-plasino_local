@@ -72,7 +72,8 @@ class clientGameController extends GameController {
             $game->close_date = date('Y-m-d H:i:s', strtotime('+7 days', strtotime(date("Y-m-d H:i:s"))));
             
             if ($game->save()) {
-                array_push($dt->incorrect_answers, $dt->correct_answer);
+                $dt->incorrect_answers[] = $dt->correct_answer;
+                //array_push($dt->incorrect_answers, $dt->correct_answer);
                 shuffle($dt->incorrect_answers);
                 
                 $arr = array(0 => 'A', 1 => 'B', 2 => 'C', 3 => 'D');

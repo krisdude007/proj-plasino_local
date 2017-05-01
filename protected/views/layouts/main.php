@@ -116,6 +116,7 @@ Yii::app()->facebook->initJs($output);
                 </div>
             </div>
         </div>
+        
         <div id="pageHeader">
             <div class="row" style="margin-right: 0px;margin-left: 0px;">
                <div class="header-logo">
@@ -123,11 +124,11 @@ Yii::app()->facebook->initJs($output);
                 		<div class="right-log-btn <?php if ($this->activeNavLink == 'login'): ?>active<?php endif; ?>"><a href="/login"><?php echo Yii::t('youtoo', 'Login Now') ?></a></div>
 						<?php else: ?>
 						
-						<div  class="right-log-btn <?php if ($this->activeNavLink == 'login'): ?>active<?php endif; ?>"> <i style="color: green;">You have <strong style="color: green;">$<?php echo GameUtility::getCashBalance(Yii::app()->user->getId()); ?></strong> balance left.</i><a href="/logout"><?php echo Yii::t('youtoo', 'Logout') ?></a></div>
+						<div  class="right-log-btn <?php if ($this->activeNavLink == 'login'): ?>active<?php endif; ?>"> <i style="color: green;">You have <strong style="color: green;">$<?php echo GameUtility::getCashBalance(Yii::app()->user->getId()); ?></strong> balance left.</i><a href="/payment"> <!-- style="background-color:transparent;">--><?php echo Yii::t('youtoo', 'Add Funds') ?><!--<img src=webassets/images/coin.png style="width: 30px; height: 30px;">--></a><a href="/logout"><?php echo Yii::t('youtoo', 'Logout') ?></a></div>
 
 						<?php endif; ?>
                		
-               		<img src="/webassets/images/logo.png" style="margin-left: 15px;"/>
+               		<img src="/webassets/images/logo.png" class="masthead-logo" style="margin-left: 15px;"/>
                </div>
                 <div class="col-xs-12" style="overflow:hidden;">
                     <span class="pull-left pageHeaderContent" style="margin: 10px 20px 0px 20px;">
@@ -140,8 +141,8 @@ Yii::app()->facebook->initJs($output);
         
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+               <!-- <span class="icon-bar"></span>
+                <span class="icon-bar"></span>-->
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -151,8 +152,8 @@ Yii::app()->facebook->initJs($output);
             <ul class="nav navbar-nav navbar-left">
 				<li class="<?php if ($this->activeNavLink == 'marketingpage'): ?>active<?php endif; ?>"><a href="/marketingpage"><?php echo Yii::t('youtoo', 'How to Play') ?></a></li>
 				<li class="<?php if ($this->activeNavLink == 'faq'): ?>active<?php endif; ?>"><a href="/faq"><?php echo Yii::t('youtoo', 'FAQ') ?></a></li>
-				<li class="<?php if ($this->activeNavLink == 'winners'): ?>active<?php endif; ?>"><a href="/winners"><?php echo Yii::t('youtoo', 'Winners') ?></a></li>
-				<li class="<?php if ($this->activeNavLink == 'prizes'): ?>active<?php endif; ?>"><a href="/prizes"><?php echo Yii::t('youtoo', 'Prizes') ?></a></li>
+				<!-- Remarked out. Only 1 game -BR- <li class="<?php if ($this->activeNavLink == 'winners'): ?>active<?php endif; ?>"><a href="/winners"><?php echo Yii::t('youtoo', 'Winners') ?></a></li>
+				<!-- Remarked out. No prize wall needed. -BR- <li class="<?php if ($this->activeNavLink == 'prizes'): ?>active<?php endif; ?>"><a href="/prizes"><?php //echo Yii::t('youtoo', 'Prizes') ?></a></li> -->
 				<li class="<?php if ($this->activeNavLink == 'pickgame'): ?>active<?php endif; ?>"><a href="/pickgame"><?php echo Yii::t('youtoo', 'Play Now') ?></a></li>  
 				<li class="<?php if ($this->activeNavLink == 'index'): ?>active<?php endif; ?>"><a href="/"><?php echo Yii::t('youtoo', 'Home') ?></a></li>
             </ul>

@@ -13,11 +13,11 @@
         });
     });
 </script>
-<div id="pageContainer" class="container" style="background: linear-gradient(#ffffff, #79c7db);">
+<div id="pageContainer" class="container loading-game" style="">
     <div class="subContainer">
         <div class="row">
-            <div class="col-xs-10">
-                <h1>Please wait while we load new questions into the system...</h1>
+            <div class="col-xs-12">
+                <h1>Loading new Questions...</h1>
             </div>
         </div>
     </div>
