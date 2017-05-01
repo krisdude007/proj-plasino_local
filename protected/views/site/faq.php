@@ -3,7 +3,7 @@
         <?php $this->renderPartial('_sideBar', array()); ?>
        <div class="col-sm-12 col-xs-12 floatRight" style="padding-right: 0px; padding-left: 0px;">
             <p>&nbsp</p>
-            <h3 style="font-weight: 300; margin-bottom: 40px;"><?php echo Yii::t('youtoo', 'FAQ'); ?></h3>
+            <h1 style=""><?php echo Yii::t('youtoo', 'FAQ'); ?></h1>
             <div class="form">
                 <?php
                 $form = $this->beginWidget('CActiveForm', array(

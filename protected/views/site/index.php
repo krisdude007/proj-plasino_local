@@ -13,12 +13,14 @@ $cs->registerScriptFile(Yii::app()->request->baseurl . '/core/webassets/js/jquer
        
 
         <?php if (Yii::app()->user->isGuest): ?>
-            <a href="<?php echo $url; ?>"><img src="/webassets/images/banners/main<?php echo (Yii::app()->language == 'en') ? '_eng' : ''; ?>.jpg" class="main-banner animated zoomInDown" style="position: relative; width:90%; border: 10px solid white;"/>
+            <a href="<?php echo $url; ?>" class="no-decoration"><img src="/webassets/images/banners/main<?php echo (Yii::app()->language == 'en') ? '_eng' : ''; ?>.jpg" class="main-banner animated zoomInDown" style=""/>
+            <div class="default-button">PLAY NOW</div>
             </a>
             <a href="/marketingpage"><span style="position: static;color: #ffffff;display: block;height: 20px;padding: 20px;font-weight: 500;"><?php echo Yii::t('youtoo','You want to know more?'); ?>&nbsp;&nbsp;&nbsp;<img src="/webassets/images/laliga/Button_Yellow-Arrow.png"/></span></a>
             <div style="position: relative; top: 15px;">
-                <span><a href=<?php echo $url; ?>><img src="/webassets/images/banners/01<?php echo (Yii::app()->language == 'en') ? '_eng' : ''; ?>.png" style="max-width: 405px; width:100%;margin-bottom:10px;"/></a></span>
-                <span><a href="http://www.dfwmas.org"<?php //echo $currentWinLooseOrDrawGame['url']; ?>"><img src="/webassets/images/banners/02<?php echo (Yii::app()->language == 'en') ? '_eng' : ''; ?>.jpg" style="max-width: 405px; width:100%;margin-bottom:10px; "/></a></span>
+                <span><a href=<?php echo $url; ?>><img src="/webassets/images/banners/01<?php echo (Yii::app()->language == 'en') ? '_eng' : ''; ?>.png" style=""/></a></span>
+                <!-- <span><a href="http://www.playsino.com"<?php // echo $currentWinLooseOrDrawGame['url']; ?>"><img src="/webassets/images/banners/02<?php // echo (Yii::app()->language == 'en') ? '_eng' : ''; ?>.jpg" style=""/></a></span> -->
+            
             </div>
         <?php else: ?>
             <?php if (isset($_GET['f']) && $_GET['f'] == 'g'): ?>
@@ -47,15 +49,16 @@ $cs->registerScriptFile(Yii::app()->request->baseurl . '/core/webassets/js/jquer
                     <br/><br/> <?php echo Yii::t('youtoo', 'Good luck and have fun.'); ?>
                 </div>
             <?php else: ?>
-                <a href="<?php echo $url; ?>"><img src="/webassets/images/banners/main<?php echo (Yii::app()->language == 'en') ? '_eng' : ''; ?>.jpg" class="animated zoomInDown" style="position: relative; width: 90%;border: 10px solid white;"/>
+                <a href="<?php echo $url; ?>" class="no-decoration"><img src="/webassets/images/banners/main<?php echo (Yii::app()->language == 'en') ? '_eng' : ''; ?>.jpg" class="animated zoomInDown" style=""/>
+                 <div class="default-button">PLAY NOW</div>
                 </a>
                 <a href="/marketingpage"><span style="padding:10px;display:block;color: #ffffff;"><?php echo Yii::t('youtoo','You want to know more?'); ?>&nbsp;&nbsp;&nbsp;<img src="/webassets/images/laliga/Button_Yellow-Arrow.png"/></span></a>
                 <div style="position: relative; top: 15px;">
-                    <span><a href="/payment?ci=1"><img src="/webassets/images/banners/01<?php echo (Yii::app()->language == 'en') ? '_eng' : ''; ?>.png" style="max-width: 405px; width:100%;margin-bottom:10px;"/></a></span>
-                    <span><a href="http://DFWMAS.org"><img src="/webassets/images/banners/02<?php echo (Yii::app()->language == 'en') ? '_eng' : ''; ?>.jpg" style="max-width: 405px; width:100%;margin-bottom:10px;"/></a></span>
-              
-                
+                    <span><a href="/payment?ci=1"><img src="/webassets/images/banners/01<?php echo (Yii::app()->language == 'en') ? '_eng' : ''; ?>.png" class="small-banner-01" style=""/></a></span>
+                    <!-- <span><a href="http://www.playsino.com"><img src="/webassets/images/banners/02<?php // echo (Yii::app()->language == 'en') ? '_eng' : ''; ?>.jpg"  class="small-banner-02" style=""/></a></span> -->
+
                       </div>
+                      
             <?php endif; ?>
         <?php endif; ?>
         <script>
@@ -72,8 +75,8 @@ $cs->registerScriptFile(Yii::app()->request->baseurl . '/core/webassets/js/jquer
             <h2 style='color: #ea8417;'><?php echo Yii::t('youtoo', 'The Games Have Ended. Click below to find out more. We will get back soon.'); ?></h2>
             <a class="btn btn-default btn-lg startButton2" style="text-indent: 0; line-height: normal;" href="<?php echo $this->createUrl('/marketingpage', array()); ?>"><?php echo Yii::t('youtoo', 'Coming Soon'); ?></a>
         <?php elseif (Yii::app()->user->isGuest): ?>
-            <h2 style='color: #ea8417;'><?php echo Yii::t('youtoo', 'Is this your first time?'); ?></h2>
-            <a class="btn btn-default btn-lg startButton2" style="text-indent: 0; line-height: normal;" href="<?php echo $this->createUrl('/register', array()); ?>"><?php echo Yii::t('youtoo', 'Get Started'); ?></a>
+           <!-- <h2 style='color: #ea8417;'><?php //echo Yii::t('youtoo', 'Is this your first time?'); ?></h2>-->
+<!--            <a class="btn btn-default btn-lg startButton2" style="text-indent: 0; line-height: normal;" href="<?php //echo $this->createUrl('/register', array()); ?>"><?php //echo Yii::t('youtoo', 'Get Started'); ?></a>-->
         <?php else: ?>
             <h2 style='color: #ea8417;'><?php echo Yii::t('youtoo', 'Start Playing here.'); ?></h2>
             <a class="btn btn-default btn-lg startButton2" style="text-indent: 0; line-height: normal;" href="<?php echo $this->createUrl('/pickgame', array()); ?>"><?php echo Yii::t('youtoo', 'Play Now'); ?></a>

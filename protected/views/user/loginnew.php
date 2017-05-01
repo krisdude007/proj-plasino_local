@@ -3,6 +3,7 @@
 Yii::app()->clientScript->registerCssFile(Yii::app()->request->baseUrl . '/core/webassets/css/jquery-ui-1.10.0.css');
 Yii::app()->clientScript->registerScriptFile('http://cdn.jquerytools.org/1.2.7/all/jquery.tools.min.js', CClientScript::POS_END);
 ?>
+  <h1 style=""><?php echo Yii::t('youtoo', 'Log In and Play!'); ?></h1>
 <div id="wrapper">
 <div id="pageContainer" class="container">
     <div class="subContainer" style="max-width: 550px;">
@@ -21,7 +22,7 @@ Yii::app()->clientScript->registerScriptFile('http://cdn.jquerytools.org/1.2.7/a
             )
            );
         ?>
-        <h1 style="font-weight: 500; font-size: 30px;"><?php echo Yii::t('youtoo', 'Log In and Play!'); ?></h1>
+      
         <br/>
         <br/>
         <div class="row">

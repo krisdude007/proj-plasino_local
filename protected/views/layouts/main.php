@@ -15,6 +15,8 @@ Yii::app()->facebook->initJs($output);
         <meta content="" name="author"/>
         <!--        <meta name="blitz" content="mu-551e693b-63f1ac84-c7a038fa-fe9b389b">-->
         <link rel="icon"  type="image/png"  href="/webassets/images/logo.png" />
+             <!--        client font-->
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Oswald" />
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
         <link rel="stylesheet" type="text/css" href="/webassets/css/client.css" />
@@ -147,16 +149,12 @@ Yii::app()->facebook->initJs($output);
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-left">
-                
-                
-                
-                <li class="<?php if ($this->activeNavLink == 'index'): ?>active<?php endif; ?>"><a href="/"><?php echo Yii::t('youtoo', 'Home') ?></a></li>
-                <li class="<?php if ($this->activeNavLink == 'pickgame'): ?>active<?php endif; ?>"><a href="/pickgame"><?php echo Yii::t('youtoo', 'Play Now') ?></a></li>           
-                <li class="<?php if ($this->activeNavLink == 'prizes'): ?>active<?php endif; ?>"><a href="/prizes"><?php echo Yii::t('youtoo', 'Prizes') ?></a></li>
-                <li class="<?php if ($this->activeNavLink == 'winners'): ?>active<?php endif; ?>"><a href="/winners"><?php echo Yii::t('youtoo', 'Winners') ?></a></li>
-                <li class="<?php if ($this->activeNavLink == 'faq'): ?>active<?php endif; ?>"><a href="/faq"><?php echo Yii::t('youtoo', 'FAQ') ?></a></li>
-                <li class="<?php if ($this->activeNavLink == 'marketingpage'): ?>active<?php endif; ?>"><a href="/marketingpage"><?php echo Yii::t('youtoo', 'How to Play') ?></a></li>
-              
+				<li class="<?php if ($this->activeNavLink == 'marketingpage'): ?>active<?php endif; ?>"><a href="/marketingpage"><?php echo Yii::t('youtoo', 'How to Play') ?></a></li>
+				<li class="<?php if ($this->activeNavLink == 'faq'): ?>active<?php endif; ?>"><a href="/faq"><?php echo Yii::t('youtoo', 'FAQ') ?></a></li>
+				<li class="<?php if ($this->activeNavLink == 'winners'): ?>active<?php endif; ?>"><a href="/winners"><?php echo Yii::t('youtoo', 'Winners') ?></a></li>
+				<li class="<?php if ($this->activeNavLink == 'prizes'): ?>active<?php endif; ?>"><a href="/prizes"><?php echo Yii::t('youtoo', 'Prizes') ?></a></li>
+				<li class="<?php if ($this->activeNavLink == 'pickgame'): ?>active<?php endif; ?>"><a href="/pickgame"><?php echo Yii::t('youtoo', 'Play Now') ?></a></li>  
+				<li class="<?php if ($this->activeNavLink == 'index'): ?>active<?php endif; ?>"><a href="/"><?php echo Yii::t('youtoo', 'Home') ?></a></li>
             </ul>
         </div>
     </div>
