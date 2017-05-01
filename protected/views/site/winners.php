@@ -3,7 +3,7 @@
         <?php $this->renderPartial('_sideBar', array()); ?>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-lg-12">
-                <h3 style="font-size: 22px; font-weight: 300;"><img src="/webassets/images/laliga/icon_crown.png" style="margin-right: 10px; padding-bottom: 5px;"/><?php echo Yii::t('youtoo', 'Winners') ?></h3>
+              <h1><!--  <img src="/webassets/images/laliga/icon_crown.png" style="margin-right: 10px; padding-bottom: 5px;"/>--><?php echo Yii::t('youtoo', 'Winners') ?></h1>
                 <div class="table-responsive winners">
                     <table class="table table-borderedx">
                         <col width="30%">

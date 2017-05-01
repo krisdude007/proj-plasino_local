@@ -9,7 +9,7 @@
 				<div class="col-md-6">
 					<div class="boxes">
 						<h3 style="text-align: left; color: #edbc5a;font-weight: 300;">New Sweepstakes</h3>
-						<p style="text-align: left; color: #ffffff; font-size: 13px;">
+						<p style="text-align: left; color: #ffffff; font-size: 13px;margin-bottom:20px;">
 						Play the exciting Trivia Quiz sweepstakes. Answer questions to win entries into a 
 						sweepstakes drawing for a trip to New Orleans and attend the MACNA 2017 convention 
 						(approx. value at $1,500) as well as other prizes. Players test their general knowledge
@@ -17,8 +17,10 @@
 						answer correctly the more you entries you win. No purchase is necessary to play, but 
 						for convenience and entertainment, additional gameplay is available from as little as $5.
 						</p>
-						<a href="/pickgame">
-							<img class="play-now-btn" src="/webassets/images/buttons/play-now-01.png"/>
+						
+						<a href="/pickgame" class="no-decoration">
+<!--							<img class="play-now-btn" src="/webassets/images/buttons/play-now-01.png"/>-->
+					<div class="default-button">PLAY NOW</div>
 						</a>
 					</div>
 				</div>

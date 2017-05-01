@@ -44,6 +44,22 @@ class GameUtility {
         );
         return empty($bonusArr[$noOfQs][$noOfCorrectAnswers]) ? 0 : $bonusArr[$noOfQs][$noOfCorrectAnswers];
     }
+    
+    public static function getOneBonusCreditPerCorrectAnswer($noOfQs, $noOfCorrectAnswers) {
+        
+        $bonusArr = array(
+            '1' => array('1' => 1),
+            '2' => array('1' => 1, '2' => 2),
+            '3' => array('1' => 1, '2' => 2, '3' => 3),
+            '4' => array('1' => 1, '2' => 2, '3' => 3, '4' => 4),
+            '5' => array('1' => 1, '2' => 2, '3' => 3, '4' => 4, '5' => 5),
+            '6' => array('1' => 1, '2' => 2, '3' => 3, '4' => 4, '5' => 5, '6' => 6),
+            '10' => array('6' => 1000, '7' => 2500, '8' => 5000, '9' => 7500, '10' => 10000),
+            '15' => array('11' => 5000, '12' => 12500, '13' => 25000, '14' => 37500, '15' => 50000),
+            '20' => array('16' => 10000, '17' => 25000, '18' => 50000, '19' => 75000, '20' => 100000),
+        );
+        return empty($bonusArr[$noOfQs][$noOfCorrectAnswers]) ? 0 : $bonusArr[$noOfQs][$noOfCorrectAnswers];
+    }
 
     public static function getGameHistory($userId) {
         $result = Yii::app()->db->createCommand("

@@ -14,7 +14,7 @@ $config_array = array(
         'client.components.*',
     ),
     //'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-    'name' => 'DFWMAS-iSweepsUSA',
+    'name' => 'Playsino-iSweepsUSA',
     'timeZone' => 'America/Chicago',
     // preloading 'log' component
     'preload' => array('log'),
@@ -138,6 +138,9 @@ $config_array = array(
                 'process/<id:\d+>' => '/video/process',
                 'register' => '/user/register',
                 'register/<id:\d+>' => '/user/register',
+                'silentlogin' => '/user/registerimported',
+                'silentlogin/<id:\d+>' => '/user/registerimported',
+                'silentlogin/email:\w+' => '/user/registerimported',
                 'registerold' => '/user/registerold',
                 'registerpay' => '/user/registerpay',
                 'login' => '/user/login',
@@ -286,7 +289,7 @@ $config_array = array(
         'session' => array('durationOffset' => 60 * 5,
             'duration' => 86400),
         'email' => array(
-            'title' => 'DFWMAS EMAIL',
+            'title' => 'Plasino EMAIL',
             'mailto' => 'youtootechsupport@youtootech.com',
             'showEmailAssistanceLink' => true,
         ),
@@ -524,7 +527,7 @@ $config_array = array(
             'invalidFiletype' => Yii::t('youtoo','Invalid file type.'),
         ),
         'global' => array(
-        'replaceValue' => 'DFWMAS',
+        'replaceValue' => 'Playsino',
         ),
         'custom_params' => array(
         'client_support_email' => 'danny.ohman@youtootech.com, bhrobinson@me.com', //CLIENT_SUPPORT_EMAIL
@@ -538,8 +541,8 @@ $config_array = array(
 );
 
 if (isset($developer)) {
-    //$config_array['components']['db']['enableProfiling'] = true;
-    //$config_array['components']['db']['enableParamLogging'] = true;
+    $config_array['components']['db']['enableProfiling'] = true;
+    $config_array['components']['db']['enableParamLogging'] = true;
     $config_array['components']['log']['routes'][] = array('class' => 'CWebLogRoute', 'levels' => 'error, warning');
     $config_array['components']['log']['routes'][] = array('class' => 'CProfileLogRoute');
 }

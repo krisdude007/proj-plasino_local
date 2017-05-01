@@ -2,7 +2,8 @@
 	<div class="subContainer" style="padding: 0px;">
 		<?php $this->renderPartial('_sideBar', array()); ?>
 		<!--        <a href="/"><img src="/webassets/images/banners/main_eng.jpg" style="position: relative; max-width: 102.6%; left: -7px;"/> </a>-->
-			
+			<p>&nbsp</p>
+            <h1><?php echo Yii::t('youtoo', 'Prizes'); ?></h1>
 		<div class="prize-container">
 			<div class="container" style="margin-top:50px;">
 				<div class="row animated fadeIn">
