@@ -71,6 +71,9 @@ $cs->registerScriptFile(Yii::app()->request->baseurl . '/core/webassets/js/jquer
         <?php elseif (isset($_GET['f']) && $_GET['f'] == 'g'): ?>
             <h2 style='color: #ea8417;'><?php echo Yii::t('youtoo', 'Want to play again?'); ?></h2>
             <a class="btn btn-default btn-lg startButton2" style="text-indent: 0; line-height: normal;" href="<?php echo $this->createUrl('/pickgame', array()); ?>"><?php echo Yii::t('youtoo', 'Play Now'); ?></a>
+        <?php elseif (isset($_GET['games']) && $_GET['games'] == 'ended'): ?>
+            <h2 style='color: #ea8417;'><?php echo Yii::t('youtoo', 'The Games Have Ended. Click below to find out more. We will get back soon.'); ?></h2>
+            <a class="btn btn-default btn-lg startButton2" style="text-indent: 0; line-height: normal;" href="<?php echo $this->createUrl('/marketingpage', array()); ?>"><?php echo Yii::t('youtoo', 'Coming Soon'); ?></a>
         <?php elseif (Yii::app()->user->isGuest): ?>
            <!-- <h2 style='color: #ea8417;'><?php //echo Yii::t('youtoo', 'Is this your first time?'); ?></h2>-->
 <!--            <a class="btn btn-default btn-lg startButton2" style="text-indent: 0; line-height: normal;" href="<?php //echo $this->createUrl('/register', array()); ?>"><?php //echo Yii::t('youtoo', 'Get Started'); ?></a>-->
