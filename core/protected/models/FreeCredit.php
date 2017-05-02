@@ -16,6 +16,8 @@
  */
 class FreeCredit extends CActiveRecord
 {
+    public $start_date;
+    public $end_date;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -38,7 +40,7 @@ class FreeCredit extends CActiveRecord
                         array('freecredit_price', 'numerical'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, user_id, freecredit_key, freecredit_price, user_email, is_code_used, code_used_by,created_on, updated_on', 'safe', 'on'=>'search'),
+			array('id, user_id, freecredit_key, freecredit_price, user_email, start_date, end_date, is_code_used, code_used_by, created_on, updated_on', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -93,6 +95,8 @@ class FreeCredit extends CActiveRecord
 		$criteria->compare('freecredit_key',$this->freecredit_key,true);
                 $criteria->compare('freecredit_price',$this->freecredit_price);
 		$criteria->compare('user_email',$this->user_email,true);
+                $criteria->compare('start_date',$this->start_date,true);
+                $criteria->compare('end_date',$this->end_date,true);
 		$criteria->compare('is_code_used',$this->is_code_used);
                 $criteria->compare('code_used_by',$this->code_used_by);
 		$criteria->compare('created_on',$this->created_on!==null?gmdate("Y-m-d H:i:s",strtotime($this->created_on)):null);

@@ -90,6 +90,8 @@ return array(
                 'admin/game' => 'adminGame/index',
                 'admin/affidavit' => 'adminAffidavit/index',
                 'admin/affidavit/<id:\d+>' => 'adminAffidavit/index',
+                'admin/promocode' => 'adminPromoCode/index',
+                'admin/promocode/<id:\d+>' => 'adminPromoCode/index',
                 'admin/affidavitreport' => 'adminAffidavitReport/index',
                 'admin/affidavitreport/<id:\d+>' => 'adminAffidavitReport/index',
                 'admin/gameprocesstwittervotes' => 'adminGame/processtwittervotes',
@@ -221,6 +223,9 @@ return array(
             'clientAllowCopyMonth' => true,
             'reportDownload' => true,
             'showAffidavitData' => true,
+        ),
+        'promocode' => array(
+            'showPromoCodeData' => true,
         ),
         'reporting' => array(
             'getMobileRegisteredUsers' => false,

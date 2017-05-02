@@ -491,7 +491,8 @@ $config_array = array(
             "HAS_GAME",
             "HAS_GAME_MULTIPLE_CHOICE",
             "HAS_PRIZES",
-            "HAS_CONTACT"
+            "HAS_CONTACT",
+            "HAS_PROMO_CONTROL"
        ),
         'statusBit' => array(
             'new' => 128,
@@ -540,11 +541,11 @@ $config_array = array(
     ),
 );
 
-if (isset($developer)) {
+//if (isset($developer)) {
     $config_array['components']['db']['enableProfiling'] = true;
     $config_array['components']['db']['enableParamLogging'] = true;
     $config_array['components']['log']['routes'][] = array('class' => 'CWebLogRoute', 'levels' => 'error, warning');
     $config_array['components']['log']['routes'][] = array('class' => 'CProfileLogRoute');
-}
+//}
 return $config_array;
 
