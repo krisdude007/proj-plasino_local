@@ -18,12 +18,12 @@ DG APRIL 29 2017
    border:none;
    border-top: 1px solid #cc97f7;
 */
-   background: #2e316e;
-   background: -webkit-gradient(linear, left top, left bottom, from(#3e9c49), to(#2e6e33));
-   background: -webkit-linear-gradient(top, #3e9c49, #2e6e33);
-   background: -moz-linear-gradient(top,#3e9c49, #2e6e33);
-   background: -ms-linear-gradient(top, #3e9c49, #2e6e33);
-   background: -o-linear-gradient(top, #3e9c49, #2e6e33);
+   background: #008365;
+   background: -webkit-gradient(linear, left top, left bottom, from(#008365), to(#2e6e33));
+   background: -webkit-linear-gradient(top, #008365, #2e6e33);
+   background: -moz-linear-gradient(top,#008365, #2e6e33);
+   background: -ms-linear-gradient(top, #008365, #2e6e33);
+   background: -o-linear-gradient(top, #008365, #2e6e33);
    padding: 15px 30px;
    -webkit-border-radius: 0px;
    -moz-border-radius: 0px;
@@ -33,19 +33,19 @@ DG APRIL 29 2017
    box-shadow: rgba(0,0,0,1) 0 1px 0;
    text-shadow: rgba(0,0,0,.4) 0 1px 0;
    color: white;
-   font-size: 23px;
+   font-size: 26px;
    font-family: Helvetica, Arial, Sans-Serif;
    text-decoration: none !important;
    vertical-align: middle;
    }
 .default-button:hover {
    
-   background: #2e6e33;
+   background: #008365;
    color: #ccc;
 text-decoration: none !important;
    }
 .default-button:active {
-   background: #39863f;
+   background: #008365;
 	text-decoration: none !important;
    }
 .right-log-btn i{
@@ -395,7 +395,7 @@ img.masthead-logo {
 	color: white !important;
 	background-color: #011a50 !important;
 	border: 1px solid transparent;
-	background-color: #333 !important;
+	background-color: #008365 !important;
 	border: 1px solid rgba(255, 255, 255, 0.25);
 	-o-transition: color .7s ease-out, background 0.2s ease-in;
 	-ms-transition: color .7s ease-out, background 0.2s ease-in;
@@ -407,7 +407,7 @@ img.masthead-logo {
 
 .btn-default:hover {
 	color: white !important;
-	background-color: #1c408d !important;
+	background-color: #008365 !important;
 	border: 1px solid transparent;
 }
 
