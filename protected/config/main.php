@@ -491,7 +491,8 @@ $config_array = array(
             "HAS_GAME",
             "HAS_GAME_MULTIPLE_CHOICE",
             "HAS_PRIZES",
-            "HAS_CONTACT"
+            "HAS_CONTACT",
+            "HAS_PROMO_CONTROL"
        ),
         'statusBit' => array(
             'new' => 128,

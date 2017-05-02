@@ -753,6 +753,8 @@ class clientUserController extends UserController {
             if (is_null($gameHistory[$i]['BonusCredits'])) {
                 //$gameHistory[$i]['NoOfCorrectAnswers'] = 'Pending';
                 $gameHistory[$i]['BonusCredits'] = 'upto ' . GameUtility::getOneBonusCreditPerCorrectAnswer($gameHistory[$i]['NoOfQuestions'], $gameHistory[$i]['NoOfCorrectAnswers']);
+            } else {
+                $gameHistory[$i]['BonusCredits'] = GameUtility::getOneBonusCreditPerCorrectAnswer($gameHistory[$i]['NoOfQuestions'], $gameHistory[$i]['NoOfCorrectAnswers']);
             }
         }//var_dump($gameHistory);exit;
         //$activityResults = GameUtility::getActivity(Yii::app()->user->getId());

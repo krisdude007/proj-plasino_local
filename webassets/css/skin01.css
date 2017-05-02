@@ -64,7 +64,7 @@ text-decoration: none !important;
 	margin-top: 30px;
 	position: relative; 
 	width:100%; 
-	border: 10px solid white;
+/*	border: 10px solid white;*/
 }
 .small-banner-01, .small-banner-02{
 	max-width: 405px; 
@@ -81,6 +81,7 @@ h1 {
 	font-weight: 100;
 	font-size: 60px;
 	color: white;
+	text-align: center;
 }
 
 h3 {
@@ -169,7 +170,10 @@ blockquote {
 	padding: 12px;
 	background-color: rgba(255, 255, 255, 0.53);
 }
-
+#user-retrieve-form{
+	background-color: white;
+	padding: 20px;
+}
 
 /*hide side bar- items moved to main nav bar*/
 
@@ -282,7 +286,7 @@ div.collapse.navbar-collapse {
 	float: right !important;
 	padding: 10px;
 */
-	padding: 15px;
+	padding: 9px; 
 	position: absolute;
 	right: 10px;
 	top: -10px
@@ -297,6 +301,7 @@ div.collapse.navbar-collapse {
 	text-decoration: none;
 	text-transform: uppercase;
 	font-size: 11px !important;
+	font-weight: 500;
 }
 
 #pageHeader {
@@ -318,7 +323,8 @@ div.collapse.navbar-collapse {
 	position: relative;
 }
 
-.header-logo img {
+
+img.masthead-logo {
 	width: 130px !important;
 	height: auto !important;
 	margin-left: 0 !important;
@@ -389,7 +395,7 @@ div.collapse.navbar-collapse {
 	color: white !important;
 	background-color: #011a50 !important;
 	border: 1px solid transparent;
-	background-color: #011a50 !important;
+	background-color: #333 !important;
 	border: 1px solid rgba(255, 255, 255, 0.25);
 	-o-transition: color .7s ease-out, background 0.2s ease-in;
 	-ms-transition: color .7s ease-out, background 0.2s ease-in;
@@ -468,14 +474,17 @@ form#user-profile-form {
 
 .panel-primary > .panel-heading {
 	color: #FFF;
-	background-color: rgba(188, 227, 255, 0.31);
-	border-color: rgba(188, 227, 255, 0.31);
+	background-color: rgba(229, 188, 255, 0.31);
+	border-color: rgba(229, 188, 255, 0.31);
 }
 
 .btn-primary {
 	white-space: normal !important;
+	display: block;
 }
-
+.game .btn-primary {
+	display: block;
+}
 .wrapper .container {
 	padding-right: 0 !important;
 }
@@ -487,7 +496,7 @@ form .user-profile-form {
 	width: 100% !important;
 }
 .table-responsive {
-	background-color: rgba(255, 255, 255, 0.49) !important;
+/*	background-color: rgba(255, 255, 255, 0.49) !important;*/
 	padding: 30px;
 	font-weight: 500;
 	border: none;
@@ -529,6 +538,70 @@ a.login-btn {
 
 
 /*PAYMENT OPTIONS PAGE*/
+#total{
+	font-size: 33px;
+}
+.gameentry-header {
+	margin-top: 50px !important;
+	color: white;
+	font-weight: 600;
+	font-size: 22px;
+}
+span.dollar-sign{
+	font-size: 22px;
+}
+.paymentOptionsTop {
+/*	background-color: white;*/
+	color: #333;
+	max-width: none;
+	width: 24%;
+	height: 100%;
+	border: none;
+	float: left;
+	
+	padding: 55px 15px 15px 15px;
+	position: relative;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	background-size: 150px;
+	background-repeat: no-repeat;
+	float: left;
+/*	margin-right: 1%;*/
+	margin-right: 0.5%;
+	margin-left: 0.5%;
+	background-position-x: center;
+	background-color: rgb(49, 114, 29);
+border-radius: 20px
+}
+.paymentOptionsTop h3{
+	margin-bottom: 20px !important;
+}
+
+#paymentOptionsTop1{
+	background-image: url("/webassets/images/purple-chip.png");
+
+}
+#paymentOptionsTop2{
+	background-image: url("/webassets/images/pink-chip.png");
+}
+#paymentOptionsTop3{
+	background-image: url("/webassets/images/yellow-chip.png");
+	
+}
+#paymentOptionsTop4{
+	background-image: url("/webassets/images/gray-chip.png");
+	
+}
+#paymentOptionsTop5{
+	background-image: url("/webassets/images/orange-chip.png");
+	clear: left;
+}
+#paymentOptionsTop6{
+	background-image: url("/webassets/images/black-chip.png");
+}
+#paymentOptionsTop7{
+	background-image: url("/webassets/images/red-chip.png");
+}
 /*
 
 .ribbon {
@@ -572,29 +645,25 @@ a.login-btn {
 }
 */
 
-.paymentOptionsTop {
-	background-color: white;
-	max-width: 175px;
-	width: 100%;
-	height: 100%;
-	border: 4px solid #9a9a9a;
-	float: none;
-	margin-right: 17px;
-	padding: 80px 15px 15px 15px;
-	position: relative;
-	margin: 0 auto;
-	margin-bottom: 20px;
+.paymentOptionsTop hr{
+	border-color: rgba(255, 255, 255, 0.28)
 }
 
 .paymentOptionsTop .btn-default.selected {
-	background-color: #055cc1 !important;
-	border-color: #055cc1;
+	background-color: transparent !important;
+	border-color: white;
+	border-width: 2px;
 	color: white !important;
 }
 
 .paymentOptionsTop .btn-default.selected:hover {
-	background-color: #055cc1 !important;
-	border-color: #055cc1;
+	background-color: #414040 !important;
+	border-color: transparent;
+	color: white !important;
+}
+.paymentOptionsTop .btn-default:hover {
+	background-color: #414040 !important;
+	border-color: transparent;
 	color: white !important;
 }
 
@@ -604,8 +673,12 @@ a.login-btn {
 	margin: 0 auto;
 	background-color: #2a3335;
 	color: #f6f6f6;
+	
 }
-
+.gameentry-text{
+	color: white;
+	font-size: 14px;
+}
 
 /*WIN LOOSE GAME PAGE*/
 
@@ -693,6 +766,7 @@ div.subContainer {
 		font-size: 26px;
 		text-align: left;
 		width: 50%;
+		margin-top: 5px !important;
 	}
 	.gameentry-text {
 		font-size: 18px !important;
@@ -702,6 +776,21 @@ div.subContainer {
 	.paymentOptionsTop hr {
 		width: 50%;
 		float: left;
+	}
+	.paymentOptionsTop h3{
+		margin-bottom: 0px !important;
+		position: absolute;
+		right: 30px;
+		top: 90px;
+		font-size: 41px !important;
+	}
+	.paymentOptionsTop .btn-default{
+		float: left !important;
+		
+	}
+	.paymentOptionsTop{
+		background-position: right -125px center !important;
+		background-size: 350px;
 	}
 }
 
@@ -722,16 +811,20 @@ div.subContainer {
 	#page-content-wrapper {
 		padding: 0 !important;
 	}
+	
+/*
 	.ribbon {
 		right: 0.9em;
 	}
+*/
 	.paymentpage-lower-info {
 		width: 80% !important;
 	}
 	.right-log-btn i,
 	.right-log-btn a {
 		display: block;
-		text-align: center
+		text-align: center;
+			margin-bottom: 5px
 	}
 	.right-log-btn i {
 		text-align: right
@@ -764,9 +857,11 @@ div.subContainer {
 		font-size: 23px;
 		line-height: 23px;
 	}
+/*
 	.ribbon {
 		right: 0.9em;
 	}
+*/
 	.right-log-btn i,
 	.right-log-btn a {
 		display: block;

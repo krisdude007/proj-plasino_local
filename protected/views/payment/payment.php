@@ -160,6 +160,8 @@ $gameEntry = array (
         });
     }
 </script>
+  <p>&nbsp</p>
+            <h1 style=""><?php echo Yii::t('youtoo', 'ADD FUNDS'); ?></h1>
   <div id="wrapper" style="background-color: #303030;">
 <div id="pageContainer" class="container" style="padding-left: 0px;">
     <div class="subContainer" style="padding: 0px;">
@@ -172,7 +174,7 @@ $gameEntry = array (
             <div class="prices-grid" style="">
                 <?php for ($i = 1; $i < 5; $i++) { ?>
                     <div class="paymentOptionsTop" id="paymentOptionsTop<?= $i;?>" style="min-height: 222px;">
-                        <div class="ribbon"><h3 style="margin-top: 0px; min-height: 43px; padding-top: 8px; margin-bottom: 0px; font-weight: 300;">$<?php echo $payCashArray[$i]; ?></h3></div>
+                        <h3 style="margin-top: 0px; min-height: 43px; padding-top: 8px; margin-bottom: 0px; font-weight: 300;"><span class="dollar-sign">$</span><?php echo $payCashArray[$i]; ?></h3>
                         
                         <div class="gameentry-header" style='margin-top: 5px;'><?php //echo $payCreditArray[$i]; ?><?php echo Yii::t('youtoo', $gameEntry[$payCreditArray[$i]]); ?></div><hr style="margin-top: 5px; margin-bottom: 5px;"/>
                             <div class="gameentry-text" style="font-size: 11px; margin-bottom: 10px;"><?php echo Yii::t('youtoo', 'Plus bonus entries<br/>for correct answers'); ?></div>

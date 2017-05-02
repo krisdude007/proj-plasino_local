@@ -77,6 +77,16 @@ class GameUtility {
         return $result;
     }
     
+    public static function getActivity($user_id) {
+        $result = Yii::app()->db->createCommand("Select g.id as gameID, g.type, g.question as gameQuestion, g.prize, g.is_active, ga.answer as gameAnswer, 
+                ga.is_correct as isCorrect, gr.game_choice_answer_id as userChoice, gr.transaction_id, gr.source, gr.created_on from 
+                game_choice g, game_choice_answer ga, game_choice_response gr where g.id = gr.game_choice_id and ga.id = gr.game_choice_answer_id and gr.user_id = {$user_id} 
+                order by gr.created_on desc
+                ")->queryAll();
+        //var_dump($result);exit;
+        return $result;
+    }
+    
     public static function getNoOfCorrectAnswersByGameId($gameId) {
         $result = Yii::app()->db->createCommand("
                 SELECT 

@@ -178,6 +178,15 @@ Yii::app()->facebook->initJs($output); // this initializes the Facebook JS SDK o
                             </a>
                         </li>
                     <?php endif; ?>
+                    <?php if (in_array('HAS_PROMO_CONTROL', Yii::app()->params['features']) && (Yii::app()->user->isSuperAdmin() || Yii::app()->user->isSiteAdmin() || Yii::app()->user->hasPermission('adminPromoCode'))): ?>
+                        <li <?php echo (Yii::app()->controller->id == 'adminPromoCode') ? 'class="on"' : ''; ?>>
+                            <a href="/admin/promocode">
+                                <div style="background-image:url('/core/webassets/images/adminnav/voting-transparent.png');">
+                                    <span>Promo Admin</span>
+                                </div>
+                            </a>
+                        </li>
+                    <?php endif; ?>
                     <?php if (in_array('HAS_AFFIDAVIT_REPORT', Yii::app()->params['features']) && (Yii::app()->user->isSuperAdmin() || Yii::app()->user->isSiteAdmin() || Yii::app()->user->hasPermission('adminaffidavitreport'))): ?>
                         <li <?php echo (Yii::app()->controller->id == 'adminAffidavitReport') ? 'class="on"' : ''; ?>>
                             <a href="/admin/affidavitreport">
