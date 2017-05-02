@@ -46,7 +46,7 @@ class AdminPromoCodeController extends Controller {
         if ($id) {
             $user_id = Yii::app()->user->getId();
             $user = eUser::model()->findByPK($user_id);
-            $promo = eFreeCredit::model()->findByPK($id);
+            $promo = eFreeCredit::model()->isNotDeleted()->findByPK($id);
             $promo->setScenario('promocode');
         } else {
             $promo = new eFreeCredit;
@@ -144,16 +144,16 @@ class AdminPromoCodeController extends Controller {
             throw new CHttpException(404, 'No id was provided.');
         }
 
-        $program = eProgram::model()->isNotDeleted()->findByPk($id);
-        if (!is_null($program)) {
-            $program->is_deleted = 1;
-            $program->updated_on = new CDbExpression('NOW()');
-            $program->save();
-            Yii::app()->user->setFlash('success', "Program has been deleted.");
-            $this->redirect('/adminAffidavit');
+        $promo = eFreeCredit::model()->isNotDeleted()->findByPk($id);
+        if (!is_null($promo)) {
+            $promo->is_deleted = 1;
+            $promo->updated_on = new CDbExpression('NOW()');
+            $promo->save();
+            Yii::app()->user->setFlash('success', "Promo has been deleted.");
+            $this->redirect('/adminPromoCode');
         } else {
-            Yii::app()->user->setFlash('success', "Program does not exist.");
-            $this->redirect('/adminAffidavit');
+            Yii::app()->user->setFlash('success', "Promo does not exist.");
+            $this->redirect('/adminPromoCode');
         }
     }
 

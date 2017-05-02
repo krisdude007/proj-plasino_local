@@ -7,17 +7,21 @@
  * @property integer $id
  * @property integer $user_id
  * @property string $freecredit_key
- * @property string $freecredit_price
+ * @property double $freecredit_price
  * @property string $user_email
+ * @property string $start_date
+ * @property string $end_date
  * @property integer $is_code_used
  * @property integer $code_used_by
+ * @property integer $is_deleted
  * @property string $created_on
  * @property string $updated_on
+ *
+ * The followings are the available model relations:
+ * @property User $user
  */
 class FreeCredit extends CActiveRecord
 {
-    public $start_date;
-    public $end_date;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -34,13 +38,14 @@ class FreeCredit extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, created_on, updated_on', 'required'),
-			array('user_id, is_code_used, code_used_by', 'numerical', 'integerOnly'=>true),
+			array('user_id, freecredit_price, created_on, updated_on', 'required'),
+			array('user_id, is_code_used, code_used_by, is_deleted', 'numerical', 'integerOnly'=>true),
+			array('freecredit_price', 'numerical'),
 			array('freecredit_key, user_email', 'length', 'max'=>256),
-                        array('freecredit_price', 'numerical'),
+			array('start_date, end_date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, user_id, freecredit_key, freecredit_price, user_email, start_date, end_date, is_code_used, code_used_by, created_on, updated_on', 'safe', 'on'=>'search'),
+			array('id, user_id, freecredit_key, freecredit_price, user_email, start_date, end_date, is_code_used, code_used_by, is_deleted, created_on, updated_on', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -52,6 +57,7 @@ class FreeCredit extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
 		);
 	}
 
@@ -64,9 +70,13 @@ class FreeCredit extends CActiveRecord
 			'id' => 'ID',
 			'user_id' => 'User',
 			'freecredit_key' => 'Freecredit Key',
+			'freecredit_price' => 'Freecredit Price',
 			'user_email' => 'User Email',
+			'start_date' => 'Start Date',
+			'end_date' => 'End Date',
 			'is_code_used' => 'Is Code Used',
-                        'code_used_by' => 'Code Used By',
+			'code_used_by' => 'Code Used By',
+			'is_deleted' => 'Is Deleted',
 			'created_on' => 'Created On',
 			'updated_on' => 'Updated On',
 		);
@@ -93,12 +103,13 @@ class FreeCredit extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('user_id',$this->user_id);
 		$criteria->compare('freecredit_key',$this->freecredit_key,true);
-                $criteria->compare('freecredit_price',$this->freecredit_price);
+		$criteria->compare('freecredit_price',$this->freecredit_price);
 		$criteria->compare('user_email',$this->user_email,true);
-                $criteria->compare('start_date',$this->start_date,true);
-                $criteria->compare('end_date',$this->end_date,true);
+		$criteria->compare('start_date',$this->start_date,true);
+		$criteria->compare('end_date',$this->end_date,true);
 		$criteria->compare('is_code_used',$this->is_code_used);
-                $criteria->compare('code_used_by',$this->code_used_by);
+		$criteria->compare('code_used_by',$this->code_used_by);
+		$criteria->compare('is_deleted',$this->is_deleted);
 		$criteria->compare('created_on',$this->created_on!==null?gmdate("Y-m-d H:i:s",strtotime($this->created_on)):null);
 		$criteria->compare('updated_on',$this->created_on!==null?gmdate("Y-m-d H:i:s",strtotime($this->updated_on)):null);
 
