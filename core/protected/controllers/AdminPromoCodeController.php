@@ -24,7 +24,7 @@ class AdminPromoCodeController extends Controller {
                     'index',
                     'delete',
                     'affidavit',
-                    'copyMonth',
+                    'newpromo',
                 ),
                 'expression' => "(Yii::app()->user->isSuperAdmin() || Yii::app()->user->isSiteAdmin() || Yii::app()->user->hasPermission('adminuser'))",
             ),
@@ -97,47 +97,32 @@ class AdminPromoCodeController extends Controller {
     public function actionNewPromo() {
 
         $model = new FormPromoCode;
-        $model->setScenario('copyToNewMonth');
+        $model->setScenario('newpromocode');
         $userId = Yii::app()->user->getId();
         $userInfo = eUser::model()->findByPK($userId);
 
         if (isset($_POST['FormPromoCode'])) {
-            $model->attributes = $_POST['FormPromoCode'];
+            $model->attributes = $_POST['FormPromoCode'];var_dump($model);exit;
             if ($model->validate()) {
-                $month = $model->month;
-                $newMonthToCopy = $model->new_month;
-                $monthNo = date('m', strtotime($month));
-                $newMonthNo = date('m', strtotime($newMonthToCopy));
-                $currYear = date('Y');
-                //if ($currYear >= Yii::app()->params['affidavit'] ['newYear']) {
-                if ($newMonthNo > $monthNo && !empty($checkData)) {
-                    $result = eProgram::model()->copyToNewMonth($month, $newMonthToCopy);
-                    if ($result == true) {
-//                        $programupdate = new eProgramUpdatedBy();
-//                        $programupdate->user_id = Yii::app()->user->getId();
-//                        $programupdate->is_updated = 0;
-//                        $programupdate->updated_month = $newMonthToCopy;
-//                        $programupdate->created_on = date("Y-m-d H:i:s");
-//
-//                        if ($programupdate->save()) {
+                
                             Yii::app()->user->setFlash('success', 'Data copied successfully');
-                            $this->redirect('/adminAffidavit');
+                            $this->redirect('/adminPromoCode');
                        // }
                     } else {
                         Yii::app()->user->setFlash('error', 'Cannot copy data. Data cannot be duplicated.');
-                        $this->redirect('/adminAffidavit');
+                        $this->redirect('/adminPromoCode');
                     }
                 } else {
                     Yii::app()->user->setFlash('error', 'Cannot copy data. Selected month is either greater than current OR data does not exist for current.');
-                    $this->redirect('/adminAffidavit');
+                    $this->redirect('/adminPromoCode');
                 }
 //            } else {
 //                Yii::app()->user->setFlash('error', 'Cannot copy data. Year needs to be greater than current year.');
 //                $this->redirect('/adminAffidavit');
 //            }
             }
-        }
-    }
+//        }
+//    }
 
     public function actionDelete($id = false) {
         if (is_null($id) || !is_numeric($id)) {

@@ -1,19 +1,11 @@
+
 <script>
-$(document).ready(function() {
-    $("#datetimepickerClose").datetimepicker({
-        maxDate: "0",
-        onSelect: function () {
-            $(this).attr('value', this.value);
-        }
-    });
-    
-    $("#datetimepickerOpen").datetimepicker({
-        maxDate: "0",
-        onSelect: function () {
-            $(this).attr('value', this.value);
-        }
-    });
-});
+$( function() {
+    $( "#datepickerStart" ).datepicker();
+    $( "#datepickerEnd" ).datepicker();
+  } );
+  
+  </script>
 
 </script>
 
@@ -34,17 +26,29 @@ $(document).ready(function() {
             )
                 ));
         ?>
-
         <div id="promocode_info">
-        <label class="fab-left">Select Month to copy from:</label>
+        <div class="clearfix" style="margin-top: 10px;">
+            <div class="row" class="floatLeft marginRight10">
+                <?php echo $form->labelEx($formPromo, 'freecredit_key'); ?>
+                <?php echo $form->textField($formPromo, 'freecredit_key'); ?>
+                <?php echo $form->error($formPromo, 'freecredit_key'); ?>
+            </div>
+            <div class="row" class="floatLeft marginRight10">
+                <?php echo $form->labelEx($formPromo, 'freecredit_price'); ?>
+                <?php echo $form->textField($formPromo, 'freecredit_price',array('value' => 5, 'readonly' => true, 'style' => 'width: 10%')); ?>
+                <?php echo $form->error($formPromo, 'freecredit_price'); ?>
+            </div>
+        </div>
+        <br/>
+        <label class="fab-left">Promo Code Start Date:</label>
         <div class="fab-clear" style="height:6px;"></div>
-        <div><?php echo $form->textField($formPromo, 'start_date', array('id' => 'datetimepickerOpen', 'style' => 'width: 140px;', 'class' => ' datetimepicker')); ?></div>
+        <div><?php echo $form->textField($formPromo, 'start_date', array('id' => 'datepickerStart', 'style' => 'width: 140px;', 'class' => ' datetimepicker')); ?></div>
         <div><?php echo $form->error($formPromo, 'start_date'); ?></div>
-        <br/><br/>
+        
 
-        <label class="fab-left">Select Month to copy to:</label>
+        <label class="fab-left">Promo Code End Date:</label>
         <div class="fab-clear" style="height:6px;"></div>
-        <div><?php echo $form->textField($formPromo, 'end_date', array('id' => 'datetimepickerOpen', 'style' => 'width: 140px;', 'class' => ' datetimepicker')); ?></div>
+        <div><?php echo $form->textField($formPromo, 'end_date', array('id' => 'datepickerEnd', 'style' => 'width: 140px;', 'class' => ' datetimepicker')); ?></div>
         <div><?php echo $form->error($formPromo, 'end_date'); ?></div>
         <br/><br/>
         </div>

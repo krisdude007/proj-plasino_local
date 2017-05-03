@@ -2,10 +2,10 @@
 Yii::app()->clientScript->registerCssFile(Yii::app()->request->baseUrl . '/core/webassets/css/jquery-ui-1.10.0.css');
 
 $cs = Yii::app()->clientScript;
-$cs->registerCssFile('/core/webassets/css/adminAffidavit/index.css');
+$cs->registerCssFile('/core/webassets/css/adminPromoCode/index.css');
 $cs->registerScriptFile('/core/webassets/js/jquery.dataTables.min.js', CClientScript::POS_END);
 $cs->registerCssFile('/core/webassets/css/jquery.dataTables_themeroller.css');
-$cs->registerScriptFile('/core/webassets/js/adminAffidavit/index.js', CClientScript::POS_END);
+$cs->registerScriptFile('/core/webassets/js/adminPromoCode/index.js', CClientScript::POS_END);
 $this->renderPartial('/admin/_csrfToken');
 ?>
 
@@ -46,6 +46,11 @@ $this->renderPartial('/admin/_csrfToken');
                     ?>
                     <?php //var_dump($programs);exit; ?>
                 </div>
+                <?php if (isset(Yii::app()->params['promocode']['adminAddNewPromoCode']) && Yii::app()->params['promocode']['adminAddNewPromoCode'] == true): ?>
+                <div style="padding-top:20px;clear:both;">
+                   <button type="button" id="fab-promocode-button" class="fab-right-filter" style="margin-top:8px;padding-top:0"><i>New Promo Code</i></button>
+                </div>
+                <?php endif; ?>
                 <?php if (isset(Yii::app()->params['promocode']['showPromoCodeData']) && Yii::app()->params['promocode']['showPromoCodeData'] == true): ?>
 
                 <div style="padding-top:40px;clear:both;">

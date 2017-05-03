@@ -6,6 +6,8 @@ $cs->registerScriptFile('/core/webassets/js/_admin.js');
 $cs->registerCssFile('/core/webassets/css/jquery-ui-1.10.0.css');
 $cs->registerCssFile('/core/webassets/css/_flashes.css');
 $cs->registerScriptFile('/core/webassets/js/jquery.tools.min.js', CClientScript::POS_END);
+  $cs->registerCssFile('//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css');
+  $cs->registerScriptFile('https://code.jquery.com/ui/1.12.1/jquery-ui.js', CClientScript::POS_END);
 //$cs->registerScript('googleanalytics', "var _gaq=_gaq||[];_gaq.push(['_setAccount', 'UA-25950024-1']);_gaq.push(['_setDomainName', 'youtoo.com']);_gaq.push(['_trackPageview']);(function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();", CClientScript::POS_END);
 
 if(Yii::app()->params['analyticsTracking']['id']) {
