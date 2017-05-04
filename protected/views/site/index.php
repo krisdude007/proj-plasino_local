@@ -20,7 +20,7 @@ $cs->registerScriptFile(Yii::app()->request->baseurl . '/core/webassets/js/jquer
             <!--<div style="position: relative; top: 15px;">
                 <span><a href=<?php echo $url; ?>><img src="/webassets/images/banners/01<?php echo (Yii::app()->language == 'en') ? '_eng' : ''; ?>.png" style=""/></a></span>
                 <!-- <span><a href="http://www.playsino.com"<?php // echo $currentWinLooseOrDrawGame['url']; ?>"><img src="/webassets/images/banners/02<?php // echo (Yii::app()->language == 'en') ? '_eng' : ''; ?>.jpg" style=""/></a></span> -->
-            <a style="padding:10px;display:block;color: #ffffff;font-size:8px;" data-toggle="modal" data-target="#modalTerms" href="http://www.playsino.com/"><?php echo Yii::t('youtoo','No purchase necessary, see official terms and rules'); ?></a>
+            <a style="padding:10px;display:block;color: #ffffff;font-size:18px;" data-toggle="modal" data-target="#modalTerms" href="http://www.playsino.com/"><?php echo Yii::t('youtoo','No purchase necessary, see official terms and rules'); ?></a>
             </div>
         <?php else: ?>
             <?php if (isset($_GET['f']) && $_GET['f'] == 'g'): ?>
@@ -57,7 +57,7 @@ $cs->registerScriptFile(Yii::app()->request->baseurl . '/core/webassets/js/jquer
                 <div style="position: relative; top: 15px;">
                     <span><!--<a href="/payment?ci=1"><img src="/webassets/images/banners/01<?php echo (Yii::app()->language == 'en') ? '_eng' : ''; ?>.png" class="small-banner-01" style=""/></a></span>
                     <!-- <span><a href="http://www.playsino.com"><img src="/webassets/images/banners/02<?php // echo (Yii::app()->language == 'en') ? '_eng' : ''; ?>.jpg"  class="small-banner-02" style=""/></a></span> -->
-<a style="padding:10px;display:block;color: #ffffff;font-size:8px;" data-toggle="modal" data-target="#modalTerms" href="http://www.playsino.com/"><?php echo Yii::t('youtoo','No purchase necessary, see official terms and rules'); ?></a>
+<a style="padding:10px;display:block;color: #ffffff;font-size:20px;" data-toggle="modal" data-target="#modalTerms" href="http://www.playsino.com/"><?php echo Yii::t('youtoo','No purchase necessary, see official terms and rules'); ?></a>
                       </div>
                       
             <?php endif; ?>

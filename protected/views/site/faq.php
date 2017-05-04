@@ -12,15 +12,7 @@
                     'htmlOptions' => array('enctype' => 'multipart/form-data'),
                 ));
                 ?>
-                <div class="col-sm-12 col-md-12">
-                    <div class="faq panel panel-primary" style='background-color: #eeeeee; border-color: #eeeeee; border-radius: 0px;'>
-                        <div class="faq panel-heading" style='padding: 0px;'>
-                            <h3 class="faq panel-title" style='padding: 5px;text-align: left;'><span class="pull-left clickable panel-collapsed"><i class="glyphicon glyphicon-chevron-right" style='top: 0px;'></i>&nbsp;&nbsp;</span>What is DFW Marine Aquarium Society?</h3>
-                        </div>
-                        <div class="faq panel-body" style='background-color: #eeeeee; border-color: #eeeeee; display: none; margin: 15px; text-align: left;'>Playsino is a 501c7 which is Dedicated to promoting public interest in the marine aquarium hobby and the advancement of knowledge in the husbandry of closed ecosystems. Your contribution is not tax deductible for Federal Income tax purposes but will be used to support our mission. </div>
-                    </div>
-                </div>
-                <br/>
+             
 
                 <div class="col-sm-12 col-md-12">
                     <div class="faq panel panel-primary" style='background-color: #eeeeee; border-color: #eeeeee; border-radius: 0px;'>
@@ -36,7 +28,7 @@
                         <div class="faq panel-heading" style='padding: 0px;'>
                             <h3 class="faq panel-title" style='padding: 5px;text-align: left;'><span class="pull-left clickable panel-collapsed"><i class="glyphicon glyphicon-chevron-right" style='top: 0px;'></i>&nbsp;&nbsp;</span>What is the price to enter if I choose the paid method?</h3>
                         </div>
-                        <div class="faq panel-body" style='background-color: #eeeeee; border-color: #eeeeee; display: none; margin: 15px; text-align: left;'>The Sweepstakes costs $5 (five US dollars) dollar to enter when using the paid method.  There may also be free to enter sweepstakes from time to time.</div>
+                        <div class="faq panel-body" style='background-color: #eeeeee; border-color: #eeeeee; display: none; margin: 15px; text-align: left;'>The Sweepstakes costs $4.99 (five US dollars) dollar to enter when using the paid method.  There may also be free to enter sweepstakes from time to time.</div>
                     </div>
                 </div>
                 <br/>
@@ -63,7 +55,7 @@
                         <div class="faq panel-heading" style='padding: 0px;'>
                             <h3 class="faq panel-title" style='padding: 5px;text-align: left;'><span class="pull-left clickable panel-collapsed"><i class="glyphicon glyphicon-chevron-right" style='top: 0px;'></i>&nbsp;&nbsp;</span>What are the methods of entry?</h3>
                         </div>
-                        <div class="faq panel-body" style='background-color: #eeeeee; border-color: #eeeeee; display: none; margin: 15px; text-align: left;'>As mentioned above, there are two methods of entry.  You can pay to enter the sweepstakes by using a credit card or PayPal account via the website.  You can also mail in a post card to enter.  Please see the Term and Conditions/Official Rules for more information.</div>
+                        <div class="faq panel-body" style='background-color: #eeeeee; border-color: #eeeeee; display: none; margin: 15px; text-align: left;'>As mentioned above, there are two methods of entry.  You can pay to enter the sweepstakes by using a credit card via the website.  You can also mail in a post card to enter.  Please see the Term and Conditions/Official Rules for more information.</div>
                     </div>
                 </div>
                 <br/>
@@ -99,7 +91,7 @@
                         <div class="faq panel-heading" style='padding: 0px;'>
                             <h3 class="faq panel-title" style='padding: 5px;text-align: left;'><span class="pull-left clickable panel-collapsed"><i class="glyphicon glyphicon-chevron-right" style='top: 0px;'></i>&nbsp;&nbsp;</span>How are winners announced?</h3>
                         </div>
-                        <div class="faq panel-body" style='background-color: #eeeeee; border-color: #eeeeee; display: none; margin: 15px; text-align: left;'>Winners will be notified via the email address used to enter the sweepstakes and will also be available on line in the winners section.  All public or media mentions will be at the sole discretion of DFWMAS</div>
+                        <div class="faq panel-body" style='background-color: #eeeeee; border-color: #eeeeee; display: none; margin: 15px; text-align: left;'>Winners will be notified via the email address used to enter the sweepstakes and will also be available on line in the winners section.  All public or media mentions will be at the sole discretion of Playsino</div>
                     </div>
                 </div>
                 <br/>

@@ -4,10 +4,10 @@ $stripe = StripeUtility::config();
 
 $gameEntry = array (
     0 => 'Free with Code',
-    1 => '$4.99 for 2 games',
-    2 => '$9.99 for 5 games',
-    3 => '$19.99 for 12 games',
-    4 => '$29.99 for 20 games',
+    1 => '$4.99 for 125,000 CHIPS / 2 games',
+    2 => '$9.99 for 300,000 CHIPS / 5 games',
+    3 => '$19.99 for 625,000 CHIPS / 12 games',
+    4 => '$29.99 for 1,000,000 CHIPS / 20 games',
  );
 ?>
 

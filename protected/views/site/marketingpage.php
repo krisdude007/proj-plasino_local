@@ -11,8 +11,7 @@
 						<h3 style="text-align: left; color: #edbc5a;font-weight: 300;">New Sweepstakes</h3>
 						<p style="text-align: left; color: #ffffff; font-size: 13px;margin-bottom:20px;">
 						Play the exciting Trivia Quiz sweepstakes. Answer questions to win entries into a 
-						sweepstakes drawing for a trip to New Orleans and attend the MACNA 2017 convention 
-						(approx. value at $1,500) as well as other prizes. Players test their general knowledge
+						sweepstakes drawing for a $10,000. Players test their general knowledge
 						with unique questions in a fun multiple choice answer format. The more questions you 
 						answer correctly the more you entries you win. No purchase is necessary to play, but 
 						for convenience and entertainment, additional gameplay is available from as little as $5.
@@ -39,9 +38,7 @@
 						for more information and requirements. After registering your
 						account and adding credits through a valid credit card, answer
 						the trivia questions. Users will receive one additional entry with
-						each correct answer to the trivia questions. DFWMAS members will
-						receive double entries.  To learn more about membership, please go
-						to DFWMAS.org for more information.  Winners will be announced at
+						each correct answer to the trivia questions. Winners will be announced at
 						the end of the game in the winners section of the website.
 						</p>
 					</div>
@@ -50,15 +47,7 @@
 					<div class="boxes">
 						<h3 style="text-align: left; color: #edbc5a;font-weight: 300;">Prizes.</h3>
 						<p style="text-align: left; color: #ffffff; font-size: 13px;">
-						First Prize: A trip to New Orleans for two to attend the MACNA 2017 Convention.
-						Trip includes two airline tickets, one hotel room for two nights, and two tickets
-						to the convention with an approximate retail value (“ARV”) of $1,500 USD 
-						(one thousand five hundred dollars).  Prize is nontransferable.
-						Second Prize: An EcoTech MP 40 fish tank motor with an approximate retail
-						value (“ARV”) of $350 USD (three hundred fifty dollars). Prize is nontransferable.
-						Third Prize: A reef octopus ss110 with an approximate retail value
-						(“ARV”) of $180 USD (one hundred eighty dollars). Prize is nontransferable.
-						</p>
+						Grand Prize: $10,000
 					</div>
 				</div>
 				<div class="col-md-4">
