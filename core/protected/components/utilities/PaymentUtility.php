@@ -344,8 +344,8 @@ class PaymentUtility {
 
     public static function stripePaymentPrepay($amount = 5, $token) {
 
-        $payCreditArray = Array("5" => "5", "10" => "10", "25" => "15", "50" => "50");
-
+        $payCreditArray = Array('4.99' => '4.99', '9.99' => '9.99', '19.99' => '19.99', '29.99' => '29.99');
+        
         $stripe = StripeUtility::config();
 
         $userEmail = eUserEmail::model()->findByAttributes(array('user_id' => Yii::app()->user->getId(), 'type' => 'primary'));
@@ -380,7 +380,12 @@ class PaymentUtility {
         $creditTransaction->type = "earned";
         $creditTransaction->credits = $payCreditArray[$amount];
         $creditTransaction->trans_id = $transaction->id;
-        $creditTransaction->save();
+        
+        if(!$creditTransaction->save()){
+            var_dump($creditTransaction->getErrors());
+            exit();
+        }
+        //$creditTransaction->save();
 
         return $transaction->id;
     }
