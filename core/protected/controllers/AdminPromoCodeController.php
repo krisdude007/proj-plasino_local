@@ -101,13 +101,20 @@ class AdminPromoCodeController extends Controller {
         $model->setScenario('newpromocode');
         $userId = Yii::app()->user->getId();
         $userInfo = eUser::model()->findByPK($userId);
-
+        
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'new-promocode-form') {
+            echo json_encode(
+                    CMap::mergeArray(json_decode(CActiveForm::validate($model), true))
+            );
+            Yii::app()->end();
+        }
+        
         if (isset($_POST['FormPromoCode'])) {
             $model->attributes = $_POST['FormPromoCode'];
+            $model->start_date = empty($model->start_date) ? date('Y-m-d h:i:s') : date('Y-m-d h:i:s', strtotime($model->start_date));
+            $model->end_date = empty($model->end_date) ? date('Y-m-d h:i:s', strtotime("+ 1 day")) : date('Y-m-d h:i:s', strtotime($model->end_date));
+            
             if ($model->validate()) {
-                $model->start_date = date('Y-m-d h:i:s', strtotime($model->start_date));
-                $model->end_date = date('Y-m-d h:i:s', strtotime($model->end_date));
-
 //                $criteria = new CDbCriteria;
 //                $criteria->select = 'distinct t.username';
                 $allUsers = eUser::model()->recent()->findAll(); //var_dump($allUsers->username);exit;

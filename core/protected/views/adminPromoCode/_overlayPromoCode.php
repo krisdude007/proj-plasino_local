@@ -6,12 +6,12 @@
 </script>
 <div style="display: none;" id="promocodeOverlay">
     <div id="promocodeOverlayContent">
-        <h2 style="font-size: 18px;">Copy an Affidavit</h2>
+        <h2 style="font-size: 18px;">Generate New Promo Code for all users</h2>
         <?php
         $form = $this->beginWidget('CActiveForm', array(
             'id' => 'new-promocode-form',
             'enableClientValidation' => true,
-            'enableAjaxValidation' => false,
+            'enableAjaxValidation' => true,
             'action' => '/adminPromoCode/newpromo',
             'htmlOptions' => array('enctype' => 'multipart/form-data'),
             'clientOptions' => array(
