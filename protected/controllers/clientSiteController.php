@@ -131,11 +131,11 @@ class clientSiteController extends SiteController {
         $usedEmail = isset($_POST['emailused']) ? $_POST['emailused'] : 'anonymous';
         $date = date('Y-m-d', time());
 
-        $isCodeValid = eFreeCredit::model()->findByAttributes(array('freecredit_key' => $freeCreditCode)); //var_dump($isCodeValid);exit;
-        $user = clientUser::model()->findByAttributes(array('username' => $usedEmail));
+        $isCodeValid = eFreeCredit::model()->findByAttributes(array('freecredit_key' => $freeCreditCode, 'user_email' => $usedEmail)); //var_dump($isCodeValid);
+        $user = clientUser::model()->findByAttributes(array('username' => $usedEmail));//var_dump($user);exit;
         
         if (!is_null($isCodeValid)) {
-            if ($usedEmail == $isCodeValid->user_email) {
+            if (!is_null($user->username) && $user->username == $isCodeValid->user_email) {
                 if ($isCodeValid->is_code_used == 0) {
                     $totalFreeCredits = PaymentUtility::countFreeCreditsPerUser($user->id, $date);
 
