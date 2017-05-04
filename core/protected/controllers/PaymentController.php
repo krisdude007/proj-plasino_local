@@ -232,7 +232,7 @@ class PaymentController extends Controller {
     public function actionProcessStripePrepay() {
         $user = clientUser::model()->findByPK(Yii::app()->user->getId());
         $userEmail = clientUserEmail::model()->findByAttributes(array('user_id' => $user->id, 'type' => 'primary'));
-
+        $amount = $_POST['amount'];
         $transactionID = PaymentUtility::stripePaymentPrepay($_POST['amount'], $_POST['stripeToken']);
         $result = MailUtility::send('thankyou', $userEmail->email, array('link' =>Yii::app()->createAbsoluteUrl("/", array()),'amount' => $_POST['amount']), false);
         if ($result) {
@@ -242,6 +242,16 @@ class PaymentController extends Controller {
                 if ($this->isMobile()) {
                     $this->redirect(Yii::app()->createURL("/site/index"));
                 }
+                $chipArray = array(
+                    '4.99' => array(1 => '125,000', 2 => '2'),
+                    '9.99' => array(1 => '300,000', 2 => '5'),
+                    '19.99' => array(1 => '625,000', 2 => '12'),
+                    '29.99' => array(1 => '1,000,000',2 => '20'),
+                );
+                
+                Yii::app()->session['chipTotal'] = $chipArray[$amount][1];
+                Yii::app()->session['gameEntries'] = $chipArray[$amount][2];
+                
                 $this->redirect(Yii::app()->createURL("/index.php?f=p"));
             } else {
                 $this->redirect(Yii::app()->createURL("/winlooseordraw/{$game_id}"));
