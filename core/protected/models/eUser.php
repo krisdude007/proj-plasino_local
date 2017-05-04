@@ -186,6 +186,7 @@ class eUser extends User {
         // instead of anything that is not user
         return array(
             'isAdmin' => array('condition' => 'role != "user"'),
+            'isNotAdmin' => array('condition' => 'role = "user"'),
             'orderLastNameAsc' => array('order' => 'last_name ASC'),
             'recent' => array('order' => '`t`.`id` DESC'),
             'asc' => array('order' => '`t`.`id` ASC'),

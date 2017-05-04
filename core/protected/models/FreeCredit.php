@@ -22,6 +22,8 @@
  */
 class FreeCredit extends CActiveRecord
 {
+    public $code_update_count;
+    public $code_added_by;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -38,14 +40,14 @@ class FreeCredit extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, freecredit_price, created_on, updated_on', 'required'),
-			array('user_id, is_code_used, code_used_by, is_deleted', 'numerical', 'integerOnly'=>true),
+			array('user_id, freecredit_key, freecredit_price, user_email, start_date, end_date', 'required'),
+			array('user_id, is_code_used, code_used_by, is_deleted, code_update_count, code_added_by', 'numerical', 'integerOnly'=>true),
 			array('freecredit_price', 'numerical'),
 			array('freecredit_key, user_email', 'length', 'max'=>256),
 			array('start_date, end_date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, user_id, freecredit_key, freecredit_price, user_email, start_date, end_date, is_code_used, code_used_by, is_deleted, created_on, updated_on', 'safe', 'on'=>'search'),
+			array('id, user_id, freecredit_key, freecredit_price, user_email, start_date, end_date, is_code_used, code_used_by, code_added_by, code_update_count, is_deleted, created_on, updated_on', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -74,6 +76,8 @@ class FreeCredit extends CActiveRecord
 			'user_email' => 'User Email',
 			'start_date' => 'Start Date',
 			'end_date' => 'End Date',
+                        'code_update_count' => 'Code Update Count',
+                        'code_added_by' => 'Code Added By',
 			'is_code_used' => 'Is Code Used',
 			'code_used_by' => 'Code Used By',
 			'is_deleted' => 'Is Deleted',
@@ -107,6 +111,8 @@ class FreeCredit extends CActiveRecord
 		$criteria->compare('user_email',$this->user_email,true);
 		$criteria->compare('start_date',$this->start_date,true);
 		$criteria->compare('end_date',$this->end_date,true);
+                $criteria->compare('code_update_count',$this->code_update_count,true);
+		$criteria->compare('code_added_by',$this->code_added_by,true);
 		$criteria->compare('is_code_used',$this->is_code_used);
 		$criteria->compare('code_used_by',$this->code_used_by);
 		$criteria->compare('is_deleted',$this->is_deleted);

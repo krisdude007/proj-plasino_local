@@ -11,8 +11,8 @@ class eFreeCredit extends FreeCredit
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, created_on, updated_on', 'required'),
-			array('user_id, is_code_used, code_used_by', 'numerical', 'integerOnly'=>true),
+			array('user_id, freecredit_key, freecredit_price, user_email, start_date, end_date', 'required'),
+			array('user_id, is_code_used, code_used_by, is_deleted, code_added_by, code_update_count', 'numerical', 'integerOnly'=>true),
 			array('freecredit_key, user_email', 'length', 'max'=>256),
                         array('freecredit_price', 'numerical'),
                         array('start_date, end_date', 'safe'),
@@ -84,28 +84,40 @@ class eFreeCredit extends FreeCredit
 	 * @return CActiveDataProvider the data provider that can return the models
 	 * based on the search/filter conditions.
 	 */
-	public function search()
+	public function search($perPage = 0)
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
+                $criteria->together = true;
+                $criteria->condition = "is_deleted = '0'";
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('user_id',$this->user_id);
-		$criteria->compare('freecredit_key',$this->freecredit_key,true);
-                $criteria->compare('freecredit_price', $this->freecredit_price,true);
-		$criteria->compare('user_email',$this->user_email,true);
-                $criteria->compare('start_date',$this->start_date,true);
-                $criteria->compare('end_date',$this->end_date,true);
-		$criteria->compare('is_code_used',$this->is_code_used);
-                $criteria->compare('code_used_by',$this->code_used_by);
-                $criteria->compare('is_deleted',$this->is_deleted);
-		$criteria->compare('created_on',$this->created_on,true);
-		$criteria->compare('updated_on',$this->updated_on,true);
+		$criteria->compare('t.id',$this->id);
+		$criteria->compare('t.user_id',$this->user_id);
+		$criteria->compare('t.freecredit_key',$this->freecredit_key,true);
+                $criteria->compare('t.freecredit_price', $this->freecredit_price,true);
+		$criteria->compare('t.user_email',$this->user_email,true);
+                $criteria->compare('t.start_date',$this->start_date,true);
+                $criteria->compare('t.end_date',$this->end_date,true);
+                $criteria->compare('t.code_update_count',$this->code_update_count,true);
+		$criteria->compare('t.code_added_by',$this->code_added_by,true);
+		$criteria->compare('t.is_code_used',$this->is_code_used);
+                $criteria->compare('t.code_used_by',$this->code_used_by);
+                $criteria->compare('t.is_deleted',$this->is_deleted);
+		$criteria->compare('created_on',$this->created_on!==null?gmdate("Y-m-d H:i:s",strtotime($this->created_on)):null);
+                $criteria->compare('updated_on',$this->updated_on!==null?gmdate("Y-m-d H:i:s",strtotime($this->updated_on)):null);
+		$criteria->compare('user.id', $this->user_id, true);
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
+                if($perPage == 0)
+                    $perPage = Yii::app()->params['perPage'];
+                    if(empty($perPage))
+                        $perPage = 20;
+                return new CActiveDataProvider(get_class($this), array(
+                    'criteria' => $criteria,
+                    'pagination' => array(
+                        'pageSize' =>$perPage,
+                    ),
+                ));
 	}
 
 	/**
