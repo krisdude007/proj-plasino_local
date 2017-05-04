@@ -30,8 +30,9 @@ class eCreditTransaction extends CreditTransaction {
         return array(
             array('user_id', 'default', 'value' => Yii::app()->user->getId()),
             array('user_id, type, credits', 'required'),
-            array('user_id, game_id, prize_id, trans_id, credits, is_deleted', 'numerical', 'integerOnly' => true),
+            array('user_id, game_id, prize_id, trans_id, is_deleted', 'numerical', 'integerOnly' => true),
             array('game_type', 'length', 'max' => 24),
+            array('credits', 'numerical'),
             array('type', 'length', 'max' => 12),
             array('credits', 'length', 'max' => 11),
             array('is_deleted', 'default', 'value' => 0),
