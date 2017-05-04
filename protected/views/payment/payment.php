@@ -174,7 +174,7 @@ $gameEntry = array (
             <div class="prices-grid" style="">
                 <?php for ($i = 1; $i < 5; $i++) { ?>
                     <div class="paymentOptionsTop" id="paymentOptionsTop<?= $i;?>" style="min-height: 222px;">
-                        <!--<h3 style="margin-top: 0px; min-height: 43px; padding-top: 8px; margin-bottom: 0px; font-weight: 300;"><span class="dollar-sign">$</span><?php //echo $payCashArray[$i]; ?></h3>-->
+                        <h3 style="margin-top: 0px; min-height: 43px; padding-top: 8px; margin-bottom: 0px; font-weight: 300; font-size: 26px !important;"><span class="dollar-sign" style="font-size: 18px;">$</span><?php echo $payCashArray[$i]; ?></h3>
                         
                         <div class="gameentry-header" style='margin-top: 5px;'><?php //echo $payCreditArray[$i]; ?><?php echo Yii::t('youtoo', $gameEntry[$i]); ?></div><hr style="margin-top: 5px; margin-bottom: 5px;"/>
                             <div class="gameentry-text" style="margin-bottom: 10px;"><?php echo Yii::t('youtoo', 'Plus bonus entries<br/>for correct answers'); ?></div>
