@@ -29,7 +29,10 @@ foreach ($game->gameChoiceAnswers as $answer) {
         background-color:#d0d0d0;
     }
 
-    
+/*    .count {
+        color: #00cccc;
+        margin-bottom: 10px;
+    }*/
 
 </style>
 
@@ -87,7 +90,7 @@ margin-left: 0px;'>
         echo '<div class="col-sm-11 ">';
         foreach ($game->gameChoiceAnswers as $ans) {
             if ($i < sizeof($game->gameChoiceAnswers) - 1) {
-            echo '<button id="game_choice_answer_id_'.$ans->id.'" class="btn btn-primary" style="background-color: transparent; margin-right: 10px; margin-bottom: 5px;" onclick="submitChoice(this,'.$ans->id.');">'.$ans->answer.'</button>';
+            echo '<button id="game_choice_answer_id_'.$ans->id.'" class="btn btn-primary" style="background-color: transparent; margin-right: 10px; margin-bottom: 5px;" onclick="submitChoice(this,'.$ans->id.', '.GameUtility::checkIfAnswerIsCorrect($ans->id).');">'.$ans->answer.'</button>';
             } 
             $i++;
         }
@@ -100,7 +103,7 @@ margin-left: 0px;'>
         echo '<div class="col-sm-11 ">';
         foreach ($game->gameChoiceAnswers as $ans) {
             if ($i < sizeof($game->gameChoiceAnswers) - 1) {
-            echo '<button id="game_choice_answer_id_'.$ans->id.'" class="btn btn-primary" style="background-color: transparent; margin-right: 10px; margin-bottom: 5px;" onclick="submitChoice(this,'.$ans->id.');">'.$ans->answer.'</button>';
+            echo '<button id="game_choice_answer_id_'.$ans->id.'" class="btn btn-primary" style="background-color: transparent; margin-right: 10px; margin-bottom: 5px;" onclick="submitChoice(this,'.$ans->id.', '.GameUtility::checkIfAnswerIsCorrect($ans->id).');">'.$ans->answer.'</button>';
             }
             $i++;
         }
@@ -131,16 +134,25 @@ margin-left: 0px;'>
     </div>
 </div>
 <script>
-    function submitChoice(me, answerId) {
-        var row = $(me).closest("tr");
-        $(me).attr('style', $(me).attr('style') + 'background-color: yellow');
-        row.css('background-color', '#142E02');
-        $(me).siblings('#eGameChoiceResponse_game_choice_answer_id').each(function () {
-            $(this).val(answerId);
-            //console.log(this);
-        });
+    function submitChoice(me, answerId, responseIsCorrect) {
+        //console.log(responseIsCorrect);
+            var row = $(me).closest("tr");
+            if (responseIsCorrect === 1) {
+            $(me).attr('style', $(me).attr('style') + 'background-color: yellow');
+            row.css('background-color', '#142E02');
+            $(me).siblings('#eGameChoiceResponse_game_choice_answer_id').each(function () {
+                $(this).val(answerId);
+                //console.log(this);
+            });
+        } else {
+            $(me).attr('style', $(me).attr('style') + 'background-color: yellow');
+            row.css('background-color', '#ff4c4c');
+            $(me).siblings('#eGameChoiceResponse_game_choice_answer_id').each(function () {
+                $(this).val(answerId);
+            });
+        }
     }
-
+    
     var submittedAnswers = JSON.parse('<?php echo json_encode($_SESSION['choiceList']); ?>');
     for (i = 0; i < submittedAnswers.length; i++) {
         value = submittedAnswers[i].game_choice_answer_id;
