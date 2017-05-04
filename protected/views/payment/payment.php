@@ -4,10 +4,10 @@ $stripe = StripeUtility::config();
 
 $gameEntry = array (
     0 => 'Free with Code',
-    5 => '$5 for 1 game',
-    10 => '$10 for 2 games',
-    25 => '$25 for 5 games',
-    50 => '$50 for 10 games',
+    1 => '$4.99 for 2 games',
+    2 => '$9.99 for 5 games',
+    3 => '$19.99 for 12 games',
+    4 => '$29.99 for 20 games',
  );
 ?>
 
@@ -174,9 +174,9 @@ $gameEntry = array (
             <div class="prices-grid" style="">
                 <?php for ($i = 1; $i < 5; $i++) { ?>
                     <div class="paymentOptionsTop" id="paymentOptionsTop<?= $i;?>" style="min-height: 222px;">
-                        <!--<h3 style="margin-top: 0px; min-height: 43px; padding-top: 8px; margin-bottom: 0px; font-weight: 300;"><span class="dollar-sign">$</span><?php //echo $payCashArray[$i]; ?></h3>-->
+                        <h3 style="margin-top: 0px; min-height: 43px; padding-top: 8px; margin-bottom: 0px; font-weight: 300; font-size: 26px !important;"><span class="dollar-sign" style="font-size: 18px;">$</span><?php echo $payCashArray[$i]; ?></h3>
                         
-                        <div class="gameentry-header" style='margin-top: 5px;'><?php //echo $payCreditArray[$i]; ?><?php echo Yii::t('youtoo', $gameEntry[$payCreditArray[$i]]); ?></div><hr style="margin-top: 5px; margin-bottom: 5px;"/>
+                        <div class="gameentry-header" style='margin-top: 5px;'><?php //echo $payCreditArray[$i]; ?><?php echo Yii::t('youtoo', $gameEntry[$i]); ?></div><hr style="margin-top: 5px; margin-bottom: 5px;"/>
                             <div class="gameentry-text" style="margin-bottom: 10px;"><?php echo Yii::t('youtoo', 'Plus bonus entries<br/>for correct answers'); ?></div>
                         <div style="margin-top: 25px;"><a id="entry<?php echo $i; ?>" href="/payment?ci=<?php echo $i; ?>" class="btn btn-default btn-md" style="min-width: 114px; min-height: 37px;"><?php echo Yii::t('youtoo', 'Select'); ?></a></div>
                     </div>

@@ -14,13 +14,13 @@ $cs->registerScriptFile(Yii::app()->request->baseurl . '/core/webassets/js/jquer
 
         <?php if (Yii::app()->user->isGuest): ?>
             <a href="<?php echo $url; ?>" class="no-decoration"><img src="/webassets/images/banners/main<?php echo (Yii::app()->language == 'en') ? '_eng' : ''; ?>.jpg" class="main-banner animated zoomInDown" style=""/>
-            <div class="default-button">PLAY NOW</div>
+            <div class="default-button large-text" style="font-size: 45px; font-weight: bold; font-family: monospace; ">PLAY NOW</div>
             </a>
             <a href="/marketingpage"><span style="position: static;color: #ffffff;display: block;height: 50px;padding: 20px;font-weight: 500;"><?php echo Yii::t('youtoo','You want to know more?'); ?>&nbsp;&nbsp;&nbsp;<img src="/webassets/images/laliga/Button_Yellow-Arrow.png"/></span></a>
             <!--<div style="position: relative; top: 15px;">
                 <span><a href=<?php echo $url; ?>><img src="/webassets/images/banners/01<?php echo (Yii::app()->language == 'en') ? '_eng' : ''; ?>.png" style=""/></a></span>
                 <!-- <span><a href="http://www.playsino.com"<?php // echo $currentWinLooseOrDrawGame['url']; ?>"><img src="/webassets/images/banners/02<?php // echo (Yii::app()->language == 'en') ? '_eng' : ''; ?>.jpg" style=""/></a></span> -->
-            
+            <a style="padding:10px;display:block;color: #ffffff;font-size:8px;" data-toggle="modal" data-target="#modalTerms" href="http://www.playsino.com/"><?php echo Yii::t('youtoo','No purchase necessary, see official terms and rules'); ?></a>
             </div>
         <?php else: ?>
             <?php if (isset($_GET['f']) && $_GET['f'] == 'g'): ?>
@@ -35,6 +35,7 @@ $cs->registerScriptFile(Yii::app()->request->baseurl . '/core/webassets/js/jquer
                         echo Yii::t('youtoo', "XXXXXX Chips have been deposited into your Playsino account<br/> You have X sweepstakes entries.");
                         ?>
                     </h3>
+                     <div class="default-button large-text" style="font-size: 45px; font-weight: bold; font-family: monospace; ">PLAY NOW</div>
                     <!--<?php echo Yii::t('youtoo', 'If you have any questions, please click'); ?> <a href="<?php echo $this->createUrl('/site/faq', array()); ?>" style="color: #ea8417;"><?php echo Yii::t('youtoo', 'FAQ'); ?></a> <?php echo Yii::t('youtoo', 'and'); ?> <a href="#" data-toggle='modal' data-target ='#modalRules' style="color: #ea8417;"><?php echo Yii::t('youtoo', 'Rules'); ?></a> <?php echo Yii::t('youtoo', 'to learn how to play.'); ?>
                     <br/><br/> <?php echo Yii::t('youtoo', 'Good luck and have fun.'); ?>-->
                 </div>
@@ -50,13 +51,13 @@ $cs->registerScriptFile(Yii::app()->request->baseurl . '/core/webassets/js/jquer
                 </div>
             <?php else: ?>
                 <a href="<?php echo $url; ?>" class="no-decoration"><img src="/webassets/images/banners/main<?php echo (Yii::app()->language == 'en') ? '_eng' : ''; ?>.jpg" class="main-banner animated zoomInDown" style=""/>
-                 <div class="default-button large-text">PLAY NOW</div>
+                 <div class="default-button large-text" style="font-size: 45px; font-weight: bold; font-family: monospace; ">PLAY NOW</div>
                 </a>
                 <a href="/marketingpage" style="padding:10px;display:block;color: #ffffff;font-size:18px;"><?php echo Yii::t('youtoo','You want to know more?'); ?>&nbsp;&nbsp;&nbsp;<img src="/webassets/images/laliga/Button_Yellow-Arrow.png"/></a>
                 <div style="position: relative; top: 15px;">
                     <span><!--<a href="/payment?ci=1"><img src="/webassets/images/banners/01<?php echo (Yii::app()->language == 'en') ? '_eng' : ''; ?>.png" class="small-banner-01" style=""/></a></span>
                     <!-- <span><a href="http://www.playsino.com"><img src="/webassets/images/banners/02<?php // echo (Yii::app()->language == 'en') ? '_eng' : ''; ?>.jpg"  class="small-banner-02" style=""/></a></span> -->
-<a style="padding:10px;display:block;color: #ffffff;font-size:18px;" data-toggle="modal" data-target="#modalTerms" href="http://www.playsino.com/"><?php echo Yii::t('youtoo','No purchase necessary, see official terms and rules'); ?>&nbsp;&nbsp;&nbsp;<img src="/webassets/images/laliga/Button_Yellow-Arrow.png"/></a>
+<a style="padding:10px;display:block;color: #ffffff;font-size:8px;" data-toggle="modal" data-target="#modalTerms" href="http://www.playsino.com/"><?php echo Yii::t('youtoo','No purchase necessary, see official terms and rules'); ?></a>
                       </div>
                       
             <?php endif; ?>
