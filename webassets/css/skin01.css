@@ -34,7 +34,7 @@ DG APRIL 29 2017
    text-shadow: rgba(0,0,0,.4) 0 1px 0;
    color: white;
    font-size: 26px;
-   font-family: Helvetica, Arial, Sans-Serif;
+/*   font-family: Helvetica, Arial, Sans-Serif;*/
    text-decoration: none !important;
    vertical-align: middle;
    }
@@ -48,6 +48,10 @@ text-decoration: none !important;
    background: #008365;
 	text-decoration: none !important;
    }
+.large-text{
+	font-size: 33px;
+	font-weight: 500;
+}
 .right-log-btn i{
 	color: #f6f6f6 !important;
 }
@@ -63,7 +67,7 @@ text-decoration: none !important;
 	animation-delay: 2s;
 	margin-top: 30px;
 	position: relative; 
-	width:100%; 
+	width:100%;
 /*	border: 10px solid white;*/
 }
 .small-banner-01, .small-banner-02{
@@ -276,7 +280,9 @@ div.collapse.navbar-collapse {
 	background-color: transparent;
 	border-bottom: 4px solid pink !important;
 }
-
+.navbar-inverse button.navbar-toggle:hover{
+	border-bottom: 4px solid transparent !important;
+}
 
 /*MASTHEAD*/
 
@@ -542,7 +548,7 @@ a.login-btn {
 	font-size: 33px;
 }
 .gameentry-header {
-	margin-top: 50px !important;
+	margin-top: 90px !important;
 	color: white;
 	font-weight: 600;
 	font-size: 22px;

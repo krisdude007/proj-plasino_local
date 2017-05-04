@@ -226,6 +226,7 @@ return array(
         ),
         'promocode' => array(
             'showPromoCodeData' => true,
+            'adminAddNewPromoCode' => true,
         ),
         'reporting' => array(
             'getMobileRegisteredUsers' => false,

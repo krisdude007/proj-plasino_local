@@ -12,7 +12,7 @@ $cs->registerScriptFile(Yii::app()->request->baseurl . '/core/webassets/js/jquer
 //$cs->registerScriptFile(Yii::app()->request->baseurl . '/core/webassets/js/adminVoting/index.js', CClientScript::POS_END);
 $cs->registerScriptFile(Yii::app()->request->baseurl . '/core/webassets/js/spectrum.js', CClientScript::POS_END);
 ?>
-<script>
+<script>    
 $(document).ready(function() {
     $("#datetimepickerClose").datetimepicker({
         maxDate: "0",
@@ -27,6 +27,21 @@ $(document).ready(function() {
             $(this).attr('value', this.value);
         }
     });
+    
+    $('#generatePromoCodeForm').on('click', function () {
+        //$('#FormPromoCode_freecredit_key').val('<?php //echo substr(str_shuffle("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"), -6);   ?>');
+        $.ajax({
+            type: 'post',
+            url: '/adminPromoCode/ajaxgeneratenewpromo',
+            data: ({
+                promo: true,
+            }),
+            dataType: 'json',
+            success: function (data) {
+                $('#eFreeCredit_freecredit_key').val(data.success);
+            }
+        });
+    });    
 });
 
 </script>
@@ -45,43 +60,49 @@ $(document).ready(function() {
         <div class="clearfix" style="margin-top: 10px;">
         </div>
         <div class="clearfix" style="margin-top: 10px;">
-            <div class="row" class="floatLeft marginRight10">
+            <div class="row floatLeft marginRight10">
                 <?php echo $form->labelEx($promo, 'user_email'); ?>
-                <?php echo $form->textField($promo, 'user_email'); ?>
+                <?php echo $form->textField($promo, 'user_email', array('class' => '')); ?>
                 <?php echo $form->error($promo, 'user_email'); ?>
             </div>
         </div>
         <div class="clearfix" style="margin-top: 10px;">
-            <div class="row" class="floatLeft marginRight10">
+            <div class="row floatLeft marginRight10">
+                <div class="col-sm-6">
                 <?php echo $form->labelEx($promo, 'freecredit_key'); ?>
                 <?php echo $form->textField($promo, 'freecredit_key'); ?>
                 <?php echo $form->error($promo, 'freecredit_key'); ?>
-            </div>
-            <div class="row" class="floatLeft marginRight10">
+                </div>
+            <div class="col-sm-6">
                 <?php echo $form->labelEx($promo, 'freecredit_price'); ?>
                 <?php echo $form->textField($promo, 'freecredit_price',array('readonly' => true)); ?>
                 <?php echo $form->error($promo, 'freecredit_price'); ?>
             </div>
+            </div>
+            
+            <div class="row floatLeft marginRight10">
+                    <?php echo CHtml::button('Generate New Promo Code', array('id' => 'generatePromoCodeForm', 'class' => 'form-control', 'style' => 'margin-top: 25px;')); ?>
+            </div>
         </div>
         <div class="clearfix" style="margin-top: 10px;">
-            <div class="row" class="floatLeft marginRight10">
+            <div class="row floatLeft marginRight10">
                 <?php echo $form->labelEx($promo, 'start_date'); ?>
                 <?php echo $form->textField($promo, 'start_date', array('id' => 'datetimepickerOpen', 'style' => 'width: 140px;', 'class' => ' datetimepicker')); ?>
                 <?php echo $form->error($promo, 'start_date'); ?>
             </div>
-            <div class="row" class="floatLeft marginRight10">
+            <div class="row floatLeft marginRight10">
                 <?php echo $form->labelEx($promo, 'end_date'); ?>
                 <?php echo $form->textField($promo, 'end_date', array('id' => 'datetimepickerClose', 'style' => 'width: 140px;', 'class' => ' datetimepicker')); ?>
                 <?php echo $form->error($promo, 'end_date'); ?>
             </div>
         </div>
         <div class="clearfix" style="margin-top: 10px;">
-            <div class="row" class="floatLeft marginRight10">
+            <div class="row floatLeft marginRight10">
                 <?php echo $form->labelEx($promo, 'code_used_by'); ?>
                 <?php echo $form->textField($promo, 'code_used_by'); ?>
                 <?php echo $form->error($promo, 'code_used_by'); ?>
             </div>
-            <div class="row" class="floatLeft marginRight10">
+            <div class="row floatLeft marginRight10">
                 <?php echo $form->labelEx($promo, 'is_code_used'); ?>
                 <?php echo $form->textField($promo, 'is_code_used',array('readonly' => false)); ?>
                 <?php echo $form->error($promo, 'is_code_used'); ?>

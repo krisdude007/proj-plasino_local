@@ -38,10 +38,10 @@
         var freeCreditCode = $('#freecreditcode').val();
         var emailUsed =  $('#emailUsed').val();//console.log(emailUsed)
         
-        if (freeCreditCode === '' || isNaN(freeCreditCode) || freeCreditCode.toString().length !== 6) {
-            alert('The number you entered either contains letters or is blank or invalid, please try again');
+        if (freeCreditCode === '' || freeCreditCode.toString().length !== 6) {
+            alert('The code you entered either is blank or invalid, please try again');
         } else if (emailUsed == '') {
-            alert('Invalid code length');
+            alert('Email cannot be blank');
         } else {
             $.ajax({
                 type: 'post',
