@@ -14,7 +14,7 @@ class FormPromoCode extends CFormModel {
     public function rules() {
 
         return array(
-            array('user_email, freecredit_key, freecredit_price, start_date, end_date, code_used_by, is_code_used', 'required'),
+            array('freecredit_price, start_date, end_date, code_used_by, is_code_used', 'required'),
             array('user_email, freecredit_key, freecredit_price, start_date, end_date, code_used_by, is_code_used', 'safe', 'on'=>'search')
         );
     }
