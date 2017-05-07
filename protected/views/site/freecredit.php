@@ -56,21 +56,9 @@
                         window.location = "/";
                         alert('One Free Game Credit added to your account');
                     }
-                    if (data.limit_reached) {
-                        window.location = "/";
-                        alert(data.limit_reached);
-                    }
-                    if (data.code_expired) {
+                    if (data.error) {
                         //window.location = "/";
-                        alert(data.code_expired);
-                    }
-                    if (data.invalid_code) {
-                        //window.location = "/";
-                        alert(data.invalid_code);
-                    }
-                    if (data.invalid_email) {
-                        //window.location = "/";
-                        alert(data.invalid_email);
+                        alert(data.error);
                     }
                 }
             });
