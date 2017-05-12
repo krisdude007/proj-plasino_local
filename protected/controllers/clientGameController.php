@@ -39,7 +39,7 @@ class clientGameController extends GameController {
 
     public function actionAjaxGameTriviaQuestionsApi($id = null) {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "https://opentdb.com/api.php?amount=".Yii::app()->params['triviaQuestions']['maxQuestionsAllowed']."&difficulty=medium");
+        curl_setopt($ch, CURLOPT_URL, "https://opentdb.com/api.php?amount=".Yii::app()->params['triviaQuestions']['maxQuestionsAllowed']."&category=22&difficulty=easy");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         $response = curl_exec($ch);

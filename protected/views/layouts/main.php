@@ -124,7 +124,7 @@ Yii::app()->facebook->initJs($output);
                 		<div class="right-log-btn <?php if ($this->activeNavLink == 'login'): ?>active<?php endif; ?>"><a href="/login"><?php echo Yii::t('youtoo', 'Login Now') ?></a></div>
 						<?php else: ?>
 						
-						<div  class="right-log-btn <?php if ($this->activeNavLink == 'login'): ?>active<?php endif; ?>"> <i style="color: green;">You have <strong style="color: green;">$<?php echo GameUtility::getCashBalance(Yii::app()->user->getId()); ?></strong> balance left.</i><a href="/payment"> <!-- style="background-color:transparent;">--><?php echo Yii::t('youtoo', 'Add Funds') ?><!--<img src=webassets/images/coin.png style="width: 30px; height: 30px;">--></a><a href="/logout"><?php echo Yii::t('youtoo', 'Logout') ?></a></div>
+						<div  class="right-log-btn <?php if ($this->activeNavLink == 'login'): ?>active<?php endif; ?>"> <i style="color: green;"><!-- removed for now - BR You have <strong style="color: green;">$<?php echo GameUtility::getCashBalance(Yii::app()->user->getId()); ?></strong> balance left.</i>--><a href="/payment"> <!-- style="background-color:transparent;">--><?php echo Yii::t('youtoo', 'Add Funds') ?><!--<img src=webassets/images/coin.png style="width: 30px; height: 30px;">--></a><a href="/logout"><?php echo Yii::t('youtoo', 'Return to Bingo Mania') ?></a></div>
 
 						<?php endif; ?>
                		

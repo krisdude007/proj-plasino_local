@@ -32,6 +32,15 @@ class GameUtility {
         return $totals;
     }
     
+    public static function getChipsAndEntries($amount = false) {
+        $chipArray = array(
+                    '4.99' => array(1 => '125,000', 2 => '2'),
+                    '9.99' => array(1 => '300,000', 2 => '5'),
+                    '19.99' => array(1 => '625,000', 3 => '12'),
+                    '29.99' => array(1 => '1,000,000',3 => '20'),
+                );
+        return $chipArray;
+    }
     
     public static function getBonusCredit($noOfQs, $noOfCorrectAnswers) {
 

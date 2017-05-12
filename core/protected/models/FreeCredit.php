@@ -24,6 +24,7 @@ class FreeCredit extends CActiveRecord
 {
     public $code_update_count;
     public $code_added_by;
+    public $is_expired;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -41,13 +42,13 @@ class FreeCredit extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('user_id, freecredit_key, freecredit_price, user_email, start_date, end_date', 'required'),
-			array('user_id, is_code_used, code_used_by, is_deleted, code_update_count, code_added_by', 'numerical', 'integerOnly'=>true),
+			array('user_id, is_code_used, code_used_by, is_deleted, is_expired, code_update_count, code_added_by', 'numerical', 'integerOnly'=>true),
 			array('freecredit_price', 'numerical'),
 			array('freecredit_key, user_email', 'length', 'max'=>256),
 			array('start_date, end_date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, user_id, freecredit_key, freecredit_price, user_email, start_date, end_date, is_code_used, code_used_by, code_added_by, code_update_count, is_deleted, created_on, updated_on', 'safe', 'on'=>'search'),
+			array('id, user_id, freecredit_key, freecredit_price, user_email, start_date, end_date, is_code_used, code_used_by, code_added_by, code_update_count, is_deleted, is_expired, created_on, updated_on', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -116,6 +117,7 @@ class FreeCredit extends CActiveRecord
 		$criteria->compare('is_code_used',$this->is_code_used);
 		$criteria->compare('code_used_by',$this->code_used_by);
 		$criteria->compare('is_deleted',$this->is_deleted);
+                $criteria->compare('is_expired',$this->is_expired);
 		$criteria->compare('created_on',$this->created_on!==null?gmdate("Y-m-d H:i:s",strtotime($this->created_on)):null);
 		$criteria->compare('updated_on',$this->created_on!==null?gmdate("Y-m-d H:i:s",strtotime($this->updated_on)):null);
 

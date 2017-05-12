@@ -4,10 +4,10 @@ $stripe = StripeUtility::config();
 
 $gameEntry = array (
     0 => 'Free with Code',
-    1 => '$4.99 for 125,000 CHIPS / 2 games',
-    2 => '$9.99 for 300,000 CHIPS / 5 games',
-    3 => '$19.99 for 625,000 CHIPS / 12 games',
-    4 => '$29.99 for 1,000,000 CHIPS / 20 games',
+    1 => '125,000 TOKENS <br/> &nbsp',
+    2 => '300,000 TOKENS <br/>3X',
+    3 => '625,000 TOKENS <br/> 5X',
+    4 => '1,000,000 TOKENS <br/> 10X',
  );
 ?>
 
@@ -161,7 +161,7 @@ $gameEntry = array (
     }
 </script>
   <p>&nbsp</p>
-            <h1 style=""><?php echo Yii::t('youtoo', 'GET CHIPS plus Entries to win $10,000'); ?></h1>
+            <h1 style=""><?php echo Yii::t('youtoo', 'GET TOKENS plus Entries to win $2,500'); ?></h1>
   <div id="wrapper" style="background-color: #303030;">
 <div id="pageContainer" class="container" style="padding-left: 0px;">
     <div class="subContainer" style="padding: 0px;">
@@ -174,7 +174,7 @@ $gameEntry = array (
             <div class="prices-grid" style="">
                 <?php for ($i = 1; $i < 5; $i++) { ?>
                     <div class="paymentOptionsTop" id="paymentOptionsTop<?= $i;?>" style="min-height: 222px;">
-                        <h3 style="margin-top: 0px; min-height: 43px; padding-top: 8px; margin-bottom: 0px; font-weight: 300; font-size: 26px !important;"><span class="dollar-sign" style="font-size: 18px;">$</span><?php echo $payCashArray[$i]; ?></h3>
+                        <h3 style="margin-top: 0px; min-height: 43px; padding-top: 8px; margin-bottom: 0px; font-weight: 300; font-size: 26px !important;"><span class="dollar-sign" style="font-size: 34px; font-weight: bolder; color: #000; ">$<?php echo $payCashArray[$i]; ?></span></h3>
                         
                         <div class="gameentry-header" style='margin-top: 5px;'><?php //echo $payCreditArray[$i]; ?><?php echo Yii::t('youtoo', $gameEntry[$i]); ?></div><hr style="margin-top: 5px; margin-bottom: 5px;"/>
                             <div class="gameentry-text" style="margin-bottom: 10px;"><?php echo Yii::t('youtoo', 'Plus bonus entries<br/>for correct answers'); ?></div>

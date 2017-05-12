@@ -2,6 +2,8 @@
 $cs = Yii::app()->getClientScript();
 $cs->registerScriptFile(Yii::app()->request->baseurl . '/core/webassets/js/jquery.countdown.min.js', CClientScript::POS_END);
 
+
+
 ?>
 <div id="pageContainer" class="container" style="padding-left: 0px; padding-right: 0px; background-color: #303030;"><?php //if(isset($_GET['f'])){ echo $_GET['f']; } exit;  ?>
     <div class="subContainer" style="padding: 0px;">
@@ -32,7 +34,7 @@ $cs->registerScriptFile(Yii::app()->request->baseurl . '/core/webassets/js/jquer
                 <div style="min-height: 235px; width: 97.4%; margin: 20px auto; padding-top: 1px;margin-left: 12px; margin-right: 10px;">
                     <h1 style="font-weight: 300; margin-bottom: 15px;"><?php echo Yii::t('youtoo', 'Thank you for your purchase'); ?></h1>
                     <h3 style="margin-bottom: 10px; line-height: 2;"><?php
-                        echo Yii::t('youtoo', "XXXXXX Chips have been deposited into your Playsino account<br/> You have X sweepstakes entries.");
+                        echo Yii::app()->session['chipTotal'].  Yii::t('youtoo', " Chips have been deposited into your Playsino account<br/> You have ". Yii::app()->session['gameEntries']." sweepstakes entries.");
                         ?>
                     </h3>
                      <div class="default-button large-text" style="font-size: 45px; font-weight: bold; font-family: monospace; ">PLAY NOW</div>

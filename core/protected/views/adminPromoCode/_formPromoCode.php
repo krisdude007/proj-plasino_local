@@ -15,14 +15,14 @@ $cs->registerScriptFile(Yii::app()->request->baseurl . '/core/webassets/js/spect
 <script>    
 $(document).ready(function() {
     $("#datetimepickerClose").datetimepicker({
-        maxDate: "0",
+        //maxDate: "0",
         onSelect: function () {
             $(this).attr('value', this.value);
         }
     });
     
     $("#datetimepickerOpen").datetimepicker({
-        maxDate: "0",
+        //maxDate: "0",
         onSelect: function () {
             $(this).attr('value', this.value);
         }

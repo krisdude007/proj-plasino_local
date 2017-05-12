@@ -12,7 +12,7 @@ class eFreeCredit extends FreeCredit
 		// will receive user inputs.
 		return array(
 			array('user_id, freecredit_key, freecredit_price, user_email, start_date, end_date', 'required'),
-			array('user_id, is_code_used, code_used_by, is_deleted, code_added_by, code_update_count', 'numerical', 'integerOnly'=>true),
+			array('user_id, is_code_used, code_used_by, is_deleted, is_expired, code_added_by, code_update_count', 'numerical', 'integerOnly'=>true),
 			array('freecredit_key, user_email', 'length', 'max'=>256),
                         array('freecredit_price', 'numerical'),
                         array('start_date, end_date', 'safe'),
@@ -20,7 +20,7 @@ class eFreeCredit extends FreeCredit
                         array('updated_on', 'default', 'value' => date("Y-m-d H:i:s"), 'setOnEmpty' => false, 'on' => 'update'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, user_id, freecredit_key, freecredit_price, user_email, start_date, end_date, is_code_used, code_used_by, is_deleted, created_on, updated_on', 'safe', 'on'=>'search'),
+			array('id, user_id, freecredit_key, freecredit_price, user_email, start_date, end_date, is_code_used, code_used_by, is_deleted, is_expired, created_on, updated_on', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -68,7 +68,13 @@ class eFreeCredit extends FreeCredit
                 ),
                 'isDeleted' => array(
                     'condition' => "is_deleted = '1'",
-                )
+                ),
+                'isExpired' => array(
+                    'condition' => "is_expired = '0'",
+                ),
+                'isNotExpired' => array(
+                    'condition' => "is_expired = '1'",
+                ),
             );
         }
 
@@ -104,6 +110,7 @@ class eFreeCredit extends FreeCredit
 		$criteria->compare('t.is_code_used',$this->is_code_used);
                 $criteria->compare('t.code_used_by',$this->code_used_by);
                 $criteria->compare('t.is_deleted',$this->is_deleted);
+                $criteria->compare('t.is_expired',$this->is_expired);
 		$criteria->compare('created_on',$this->created_on!==null?gmdate("Y-m-d H:i:s",strtotime($this->created_on)):null);
                 $criteria->compare('updated_on',$this->updated_on!==null?gmdate("Y-m-d H:i:s",strtotime($this->updated_on)):null);
 		$criteria->compare('user.id', $this->user_id, true);

@@ -89,13 +89,13 @@ class clientSiteController extends SiteController {
         if (!empty($allCorrect)) {
             $allAnswers = eGameChoiceResponse::model()->findAllByAttributes(array('game_unique_id' => Yii::app()->session['gameUniqueId'])); //var_dump($countCorrect);exit;
             $countCorrect = sizeof($allCorrect);
-            
+
             foreach ($allAnswers as $aa) {
-                    $aa->bonus_credit = $countCorrect;
-                    if($aa->validate()) {
-                        $aa->update(array('bonus_credit'));
-                    }
-                }            
+                $aa->bonus_credit = $countCorrect;
+                if ($aa->validate()) {
+                    $aa->update(array('bonus_credit'));
+                }
+            }
         } else {
             $countCorrect = 0;
         }
@@ -132,34 +132,42 @@ class clientSiteController extends SiteController {
         $date = date('Y-m-d', time());
 
         $isCodeValid = eFreeCredit::model()->findByAttributes(array('freecredit_key' => $freeCreditCode, 'user_email' => $usedEmail)); //var_dump($isCodeValid);
-        $user = clientUser::model()->findByAttributes(array('username' => $usedEmail));//var_dump($user);exit;
-        
+        $user = clientUser::model()->findByAttributes(array('username' => $usedEmail)); //var_dump($user);exit;
+
         if (!is_null($isCodeValid)) {
             if (!is_null($user->username) && $user->username == $isCodeValid->user_email) {
                 if ($isCodeValid->is_code_used == 0) {
                     $totalFreeCredits = PaymentUtility::countFreeCreditsPerUser($user->id, $date);
 
                     if ($totalFreeCredits < Yii::app()->params['GamePlay']['maxFreeCredits']) {
-                        $result = PaymentUtility::oneFreeCreditNEW('game_choice', Yii::app()->params['GamePlay']['freeCreditPrice'], $userId, $freeCreditCode);
-                        if ($result) {
-                            $isCodeValid->is_code_used = 1;
-                            $isCodeValid->code_used_by = $userId;
-                            if ($isCodeValid->validate()) {
-                                $isCodeValid->update(array('is_code_used', 'code_used_by'));
+                        if (strtotime($isCodeValid->end_date) > strtotime($date)) {
+                            $result = PaymentUtility::oneFreeCreditNEW('game_choice', Yii::app()->params['GamePlay']['freeCreditPrice'], $userId, $freeCreditCode);
+                            if ($result) {
+                                $isCodeValid->is_code_used = 1;
+                                $isCodeValid->code_used_by = $userId;
+                                if ($isCodeValid->validate()) {
+                                    $isCodeValid->update(array('is_code_used', 'code_used_by'));
+                                }
+                                echo json_encode(array('added' => Yii::t('youtoo', 'One free credit added')));
                             }
-                            echo json_encode(array('added' => Yii::t('youtoo', 'One free credit added')));
+                        } else {
+                            $isCodeValid->is_expired = 1;
+                                if ($isCodeValid->validate()) {
+                                    $isCodeValid->update(array('is_expired'));
+                                } 
+                            echo json_encode(array('error' => Yii::t('youtoo', 'This code has expired.')));
                         }
                     } else {
-                        echo json_encode(array('limit_reached' => Yii::t('youtoo', 'You have reached your free credit limit. No more credits can be added for today.')));
+                        echo json_encode(array('error' => Yii::t('youtoo', 'You have reached your free credit limit. No more credits can be added for today.')));
                     }
                 } else {
-                    echo json_encode(array('code_expired' => Yii::t('youtoo', 'This code has been used already')));
+                    echo json_encode(array('error' => Yii::t('youtoo', 'This code has been used already')));
                 }
             } else {
-                echo json_encode(array('invalid_email' => Yii::t('youtoo', 'This email is not associated with the code you entered.')));
+                echo json_encode(array('error' => Yii::t('youtoo', 'This email is not associated with the code you entered.')));
             }
         } else {
-            echo json_encode(array('invalid_code' => Yii::t('youtoo', 'This code entered is invalid. Please contact the administrator.')));
+            echo json_encode(array('error' => Yii::t('youtoo', 'This code entered is invalid. Please contact the administrator.')));
         }
     }
 
